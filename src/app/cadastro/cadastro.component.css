@@ -1,0 +1,31 @@
+#img-bg{
+  background-image: url('https://i0.wp.com/www.ihu.unisinos.br/images/ihu/2017/10/20_10_trabalho_escravo_foto_reporter_brasil.jpg');
+  min-height: 800px;
+  min-width: 400px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg {
+  background-color: var(--clr-cinza-escuro);
+}
+
+.cadastrar{
+
+  background-color: var(--clr-azul-escuro)
+
+}
+
+.cancelar{
+
+  background-color: var(--clr-cinza-claro)
+
+}
+
+.campos{
+
+  background-color: var(--clr-branco-gelo)
+
+}
