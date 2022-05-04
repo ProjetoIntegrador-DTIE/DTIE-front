@@ -12,4 +12,8 @@ export class PostagemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  cep(){
+    
+  }
+
 }
