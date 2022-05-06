@@ -1,20 +1,19 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">DTIE</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Sobre nós <span class="sr-only">(current)</span></a>
+<div class="d-flex container-fluid">
+  <nav class="bg-secondary" id="sidebar">
+    <div class="sidebar-header">
+      <h3 class="text-center">DTIE</h3>
+    </div>
+<hr>
+    <ul class="list-unstyled components">
+      <li class="nav-item">
+        <a class="nav-link btn btn-secondary text-branco" href="#">Sobre nós </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/login">Login</a>
+        <a class="nav-link btn btn-secondary text-branco" href="#">Postagens </a>
       </li>
-      <li class="nav-item" *ngIf="auth.logado()">
-        <a class="nav-link" (click)="sair()" routerLink="/postagem">Sair</a>
+      <li class="nav-item *ngIf="auth.logado()"">
+        <a class="nav-link btn btn-secondary text-branco" (click)="sair()" routerLink="/postagem" href="#">Sair </a>
       </li>
     </ul>
-  </div>
-</nav>
+  </nav>
+</div>
