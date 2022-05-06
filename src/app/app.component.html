@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="auth.logado()">
   <div class="row">
 
     <div class="col-md-4">
@@ -10,6 +10,12 @@
     </div>
   </div>
 
+<app-rodape></app-rodape>
 </div>
 
-<app-rodape></app-rodape>
+
+<div *ngIf="!auth.logado()">
+  <app-menu></app-menu>
+  <router-outlet></router-outlet>
+  <app-rodape></app-rodape>
+</div>
