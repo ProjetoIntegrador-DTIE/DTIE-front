@@ -11,8 +11,8 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  login(usuariorLogin: UsuarioLogin): Observable<UsuarioLogin>{
-    return this.http.post<UsuarioLogin>("https://dtie.herokuapp.com/usuarios/logar", usuariorLogin);
+  login(usuarioLogin: UsuarioLogin): Observable<UsuarioLogin>{
+    return this.http.post<UsuarioLogin>("https://dtie.herokuapp.com/usuarios/logar", usuarioLogin);
   }
 
   cadastrar(usuario: Usuario): Observable<Usuario>{
