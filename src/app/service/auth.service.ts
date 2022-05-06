@@ -15,7 +15,7 @@ export class AuthService {
     return this.http.post<UsuarioLogin>("https://dtie.herokuapp.com/usuarios/logar", usuariorLogin);
   }
 
-  cadastra(usuario: Usuario): Observable<Usuario>{
+  cadastrar(usuario: Usuario): Observable<Usuario>{
     return this.http.post<Usuario>("https://dtie.herokuapp.com/usuarios/cadastrar", usuario);
   }
 
