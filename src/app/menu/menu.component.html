@@ -11,10 +11,9 @@
       <li class="nav-item">
         <a class="nav-link btn btn-secondary text-branco" href="#">Postagens </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link btn btn-secondary text-branco" href="#">Sair </a>
+      <li class="nav-item *ngIf="auth.logado()"">
+        <a class="nav-link btn btn-secondary text-branco" (click)="sair()" routerLink="/postagem" href="#">Sair </a>
       </li>
     </ul>
-
   </nav>
 </div>
