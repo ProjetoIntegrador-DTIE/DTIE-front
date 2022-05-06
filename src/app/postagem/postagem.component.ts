@@ -9,7 +9,11 @@ export class PostagemComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(){
+  }
+
+  cep(){
+
   }
 
 }

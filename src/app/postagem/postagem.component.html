@@ -4,73 +4,171 @@
 
     <!-- Lado esquerdo -->
     <div class="col-md-4"></div>
+    <!-- /Lado esquerdo -->
 
     <!-- Centro -->
     <div class="col-md-4">
-      <form>
-        <div class="form-group">
-          <label for="">Tipo de denúncia</label>
-          <select class="form-control badge-pill" id="exampleFormControlSelect1">
-            <option>Infantil</option>
-            <option>Escravo</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="">Endereço</label>
-          <input type="text" class="form-control badge-pill" id="inputAddress" placeholder="1234 Av. Paulista">
-        </div>
-        <div class="form-group">
-          <label for="">Complemento</label>
-          <input type="text" class="form-control badge-pill" id="inputAddress2">
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-4">
-            <label for="">Cidade</label>
-            <input type="text" class="form-control badge-pill" id="inputCity">
-          </div>
-          <div class="form-group col-md-4">
-            <label for="">Estado</label>
-            <select id="inputState" class="form-control badge-pill">
-              <option selected>Choose...</option>
-              <option>...</option>
-            </select>
-          </div>
-          <div class="form-group col-md-4">
-            <label for="">CEP</label>
-            <input type="text" class="form-control badge-pill" id="inputCep" placeholder="12345-678">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="">Foto do Local</label>
-          <input type="file" class="form-control-file" id="fotos">
-        </div>
-        <div class="form-group">
-          <label for="">Entre com sua denúncia</label>
-          <textarea class="form-control" id="denuncia" rows="5"></textarea>
-        </div>
-      </form>
 
-      <div class="row">
-        <div class="col-md-6">
-          <button type="submit" class="btn btn-primary badge-pill">Enviar</button>
-        </div>
+      <!-- Postagem -->
+      <div class="row d-flex justify-content-center m-3">
 
-        <div class="col-md-6 d-flex justify-content-end">
-          <div class="form-group">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="gridCheck">
-              <label class="form-check-label" for="gridCheck">
-                Urgencia
-              </label>
+        <h1 class="mr-3">Denuncie Agora! </h1>
+
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-secondary badge-pill" data-toggle="modal" data-target="#exampleModal">
+        Denuncie
+      </button>
+      <!-- /Button trigger modal -->
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Faça sua denuncia</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="">Tipo de denúncia</label>
+                  <select class="form-control badge-pill" id="exampleFormControlSelect1">
+                    <option>Escolha...</option>
+                    <option value="infantil">Infantil</option>
+                    <option value="escravo">Escravo</option>
+                  </select>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="inputCep">CEP</label>
+                    <input type="text" class="form-control badge-pill" name="cep" id="inputCep" placeholder="12345678">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputCidade">Cidade</label>
+                    <input type="text" class="form-control badge-pill" name="cidade" id="inputCidade">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputState">Estado</label>
+                      <select id="inputState" class="form-control badge-pill">
+                      <option selected>Escolha...</option>
+                      <option value="AC">Acre</option>
+                      <option value="AL">Alagoas</option>
+                      <option value="AP">Amapá</option>
+                      <option value="AM">Amazonas</option>
+                      <option value="BA">Bahia</option>
+                      <option value="CE">Ceará</option>
+                      <option value="DF">Distrito Federal</option>
+                      <option value="ES">Espirito Santo</option>
+                      <option value="GO">Goiás</option>
+                      <option value="MA">Maranhão</option>
+                      <option value="MS">Mato Grosso do Sul</option>
+                      <option value="MT">Mato Grosso</option>
+                      <option value="MG">Minas Gerais</option>
+                      <option value="PA">Pará</option>
+                      <option value="PB">Paraíba</option>
+                      <option value="PR">Paraná</option>
+                      <option value="PE">Pernambuco</option>
+                      <option value="PI">Piauí</option>
+                      <option value="RJ">Rio de Janeiro</option>
+                      <option value="RN">Rio Grande do Norte</option>
+                      <option value="RS">Rio Grande do Sul</option>
+                      <option value="RO">Rondônia</option>
+                      <option value="RR">Roraima</option>
+                      <option value="SC">Santa Catarina</option>
+                      <option value="SP">São Paulo</option>
+                      <option value="SE">Sergipe</option>
+                      <option value="TO">Tocantins</option>
+                      </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="inputEndereco">Endereço</label>
+                  <input type="text" class="form-control badge-pill" name="endereco" id="inputEndereco" placeholder="1234 Av. Paulista">
+                </div>
+                <div class="form-group">
+                  <label for="inputEndereco2">Complemento</label>
+                  <input type="text" class="form-control badge-pill" name="endereco2" id="inputEndereco2">
+                </div>
+
+
+                <div class="form-group">
+                  <label for="fotos">Foto do Local</label>
+                  <input type="file" class="fotos" id="fotos">
+                </div>
+
+                <div class="form-group">
+                  <label for="denuncia">Entre com sua denúncia</label>
+                  <textarea class="form-control" name="caixaTexto" id="denuncia" rows="5"></textarea>
+                </div>
+              </form>
+
+              <div class="row">
+                <div class="col d-flex justify-content-end">
+                  <div class="form-group">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="checkbox" id="checkbox">
+                      <label class="form-check-label" for="checkbox">
+                        Urgencia
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary badge-pill" data-dismiss="modal">Fechar</button>
+              <button type="submit" class="btn btn-outline-secondary badge-pill">Enviar</button>
             </div>
           </div>
         </div>
       </div>
+      <!-- /Modal -->
+      </div>
+      <!-- /Postagem -->
+
+    <hr>
+
+      <!-- Posts -->
+      <div class="row">
+        <div class="col d-flex justify-content-center">
+          <h3>Posts</h3>
+        </div>
+
+        <div class="row">
+          <p class="text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius tempore repudiandae excepturi officia reprehenderit, beatae omnis dolore odit, distinctio commodi nobis blanditiis officiis. Ad placeat hic accusamus quae nulla, natus eos doloremque porro aliquid unde, repudiandae dicta, perferendis velit saepe temporibus voluptatibus autem aut expedita nostrum molestias provident sapiente recusandae corrupti! Id similique, veniam asperiores itaque ea quisquam quaerat perspiciatis fugiat quam, doloremque excepturi necessitatibus exercitationem voluptas nostrum nam hic? Placeat nemo exercitationem repellat, ex aut vitae dolorem dolores illum minus eos, itaque veritatis atque velit, voluptatem dolorum! Laboriosam, dignissimos dolor nulla esse perspiciatis voluptate doloremque iure architecto at itaque pariatur dolorem nisi ad nesciunt provident aut cupiditate quas sapiente? Explicabo eveniet quibusdam fugiat nihil, possimus eos facere odio sapiente similique hic. Voluptatibus necessitatibus, qui voluptatum fugiat molestiae delectus pariatur adipisci vitae, vel, nemo placeat minus? Ab maxime natus quo. Sequi iure ea aut explicabo aperiam natus possimus alias eveniet reprehenderit adipisci! Totam modi, quas expedita magnam quasi distinctio consequatur qui placeat similique sint exercitationem, vel vero tempore? Dolor aspernatur vitae enim dolores voluptate tenetur numquam atque quasi architecto animi nesciunt reiciendis iste pariatur ratione, quia earum delectus, vel harum obcaecati autem aliquam? Repellat doloremque debitis tenetur soluta, saepe sunt voluptatem dolor, odio in asperiores repellendus at quaerat deserunt voluptates iusto. Odio, maiores perferendis? Voluptate quos consequuntur, sunt perferendis cumque, accusamus laboriosam maiores dolorem tempore minus provident. Maiores officiis assumenda alias molestiae eligendi. Veniam optio earum doloribus, repellendus eum quisquam veritatis similique dolorem laudantium eos expedita voluptatem eaque ipsam temporibus. Ducimus, aliquid ex beatae quisquam enim sit natus itaque maxime, consectetur officia repudiandae commodi! Porro, labore reiciendis delectus dicta impedit exercitationem pariatur error illum voluptates odio soluta quasi ipsam architecto incidunt consequuntur quis tempore voluptatibus saepe fuga perferendis quos. Molestiae minima enim impedit ea placeat, reprehenderit provident odio adipisci illo dolore aliquid nisi non. Enim maxime velit autem explicabo nesciunt error ex laborum pariatur nobis aspernatur quia atque earum facere officiis, labore ipsa. Maxime dolore sed quia atque quibusdam eum perspiciatis provident quo fugiat possimus suscipit, delectus architecto quos itaque porro unde saepe doloremque!</p>
+        </div>
+      </div>
+      <!-- /Posts -->
+
 
     </div>
+    <!-- /Centro -->
 
     <!-- lado direito -->
-    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="row d-flex justify-content-center m-3">
+        <h1>Noticias</h1>
+      </div>
+
+      <div class="row">
+        <div class="col-md-10 offset-md-1">
+          <ul class="list-group">
+            <li class="list-group-item">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro blanditiis quaerat temporibus fugit nesciunt ab perspiciatis! Minima animi sed in laudantium aspernatur vel consequuntur, nostrum sequi voluptates, perferendis amet necessitatibus!</li>
+            <li class="list-group-item">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis ut modi velit autem sequi dignissimos odit, tempore repellat ratione quas at animi quam itaque iure repellendus accusantium doloribus nulla quaerat!</li>
+            <li class="list-group-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim qui, voluptates provident temporibus cumque soluta hic itaque et quaerat explicabo omnis obcaecati eveniet accusamus, ipsa debitis reiciendis mollitia officia vel.</li>
+            <li class="list-group-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, deleniti doloribus odio quasi ullam molestias, labore blanditiis mollitia perspiciatis consectetur quos sed et modi ratione incidunt, repudiandae aliquam natus dolore.</li>
+            <li class="list-group-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. At odio quia consequatur neque doloribus quam suscipit, deleniti numquam veritatis. Molestias mollitia tempore cumque iste consequuntur eveniet omnis voluptatem atque velit.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+    <!-- /lado direito -->
 
   </div>
 
