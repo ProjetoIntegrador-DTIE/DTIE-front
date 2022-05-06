@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Postagem } from '../modal/Postagem';
+import { ViacepService } from '../service/viacep.service';
 
 @Component({
   selector: 'app-postagem',
@@ -7,13 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostagemComponent implements OnInit {
 
-  constructor() { }
+  postagem: Postagem = new Postagem();
+
+  constructor(
+    private cepService: ViacepService,
+  ) { }
 
   ngOnInit(){
   }
 
-  cep(){
-
+  getCep(){
+    this.cepService.getCep(this.postagem.cep).subscribe((resp: any) => {
+      this.postagem.endereco = resp.logradouro;
+      
+    })
   }
+
 
 }
