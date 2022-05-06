@@ -18,8 +18,16 @@ export class MenuComponent implements OnInit {
   ngOnInit(){
   }
 
+  sobre(){
+    this.router.navigate([""])
+  }
+
+  postagem(){
+    this.router.navigate(["/postagem"])
+  }
+
   sair(){
-    this.router.navigate(["/login"])
+    this.router.navigate([""])
     environment.token = "";
     environment.nome = "";
     environment.foto = "";

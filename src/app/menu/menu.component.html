@@ -1,4 +1,27 @@
-<div class="d-flex container-fluid">
+<!-- menu login -->
+<nav class="navbar navbar-expand-lg navbar-light bg-secondary" *ngIf="!auth.logado()">
+  <a class="navbar-brand text-light" href="#">DTIE</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link text-light" href="#">Sobre nós <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light" routerLink="/login">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light" routerLink="/cadastro">Cadastrar</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- menu logoff -->
+<div class="d-flex container-fluid" *ngIf="auth.logado()">
   <nav class="bg-secondary" id="sidebar">
     <div class="sidebar-header">
       <h3 class="text-center">DTIE</h3>
@@ -6,13 +29,16 @@
 <hr>
     <ul class="list-unstyled components">
       <li class="nav-item">
-        <a class="nav-link btn btn-secondary text-branco" href="#">Sobre nós </a>
+        <a class="nav-link btn btn-secondary text-branco" (click)="sobre()">Sobre nós</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link btn btn-secondary text-branco" href="#">Postagens </a>
+        <a class="nav-link btn btn-secondary text-branco" (click)="postagem()">Postagens</a>
       </li>
-      <li class="nav-item *ngIf="auth.logado()"">
-        <a class="nav-link btn btn-secondary text-branco" (click)="sair()" routerLink="/postagem" href="#">Sair </a>
+      <li class="nav-item">
+        <a class="nav-link btn btn-secondary text-branco" data-toggle="modal" data-target="#exampleModal">Denuncie</a>
+      </li>
+      <li class="nav-item" *ngIf="auth.logado()">
+        <a class="nav-link btn btn-secondary text-branco" (click)="sair()">Sair</a>
       </li>
     </ul>
   </nav>
