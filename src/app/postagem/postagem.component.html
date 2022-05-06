@@ -40,18 +40,15 @@
                     <option value="escravo">Escravo</option>
                   </select>
                 </div>
-                <div class="form-group">
-                  <label for="">Endereço</label>
-                  <input type="text" class="form-control badge-pill" id="inputAddress" placeholder="1234 Av. Paulista">
-                </div>
-                <div class="form-group">
-                  <label for="">Complemento</label>
-                  <input type="text" class="form-control badge-pill" id="inputAddress2">
-                </div>
+
                 <div class="form-row">
                   <div class="form-group col-md-4">
-                    <label for="">Cidade</label>
-                    <input type="text" class="form-control badge-pill" id="inputCity">
+                    <label for="inputCep">CEP</label>
+                    <input type="text" class="form-control badge-pill" name="cep" id="inputCep" placeholder="12345678">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputCidade">Cidade</label>
+                    <input type="text" class="form-control badge-pill" name="cidade" id="inputCidade">
                   </div>
                   <div class="form-group col-md-4">
                     <label for="inputState">Estado</label>
@@ -86,18 +83,26 @@
                       <option value="TO">Tocantins</option>
                       </select>
                   </div>
-                  <div class="form-group col-md-4">
-                    <label for="">CEP</label>
-                    <input type="text" class="form-control badge-pill" id="inputCep" placeholder="12345678">
-                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="inputEndereco">Endereço</label>
+                  <input type="text" class="form-control badge-pill" name="endereco" id="inputEndereco" placeholder="1234 Av. Paulista">
                 </div>
                 <div class="form-group">
-                  <label for="">Foto do Local</label>
-                  <input type="file" class="form-control-file" id="fotos">
+                  <label for="inputEndereco2">Complemento</label>
+                  <input type="text" class="form-control badge-pill" name="endereco2" id="inputEndereco2">
                 </div>
+
+
                 <div class="form-group">
-                  <label for="">Entre com sua denúncia</label>
-                  <textarea class="form-control" id="denuncia" rows="5"></textarea>
+                  <label for="fotos">Foto do Local</label>
+                  <input type="file" class="fotos" id="fotos">
+                </div>
+
+                <div class="form-group">
+                  <label for="denuncia">Entre com sua denúncia</label>
+                  <textarea class="form-control" name="caixaTexto" id="denuncia" rows="5"></textarea>
                 </div>
               </form>
 
@@ -105,8 +110,8 @@
                 <div class="col d-flex justify-content-end">
                   <div class="form-group">
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="gridCheck">
-                      <label class="form-check-label" for="gridCheck">
+                      <input class="form-check-input" type="checkbox" name="checkbox" id="checkbox">
+                      <label class="form-check-label" for="checkbox">
                         Urgencia
                       </label>
                     </div>
