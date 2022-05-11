@@ -12,7 +12,7 @@ export class Postagem{
   public complemento: string;
   public ufNome: string;
   public ufSigla: string;
-  public urgencia: string;
+  public urgencia: boolean;
   public tema: Tema;
   public usuario: Usuario;
   public verificacao: Verificacao;

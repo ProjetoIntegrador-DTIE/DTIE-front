@@ -1,23 +1,23 @@
 <!-- menu login -->
 <div class="container-fluid p-0" *ngIf="auth.logado()">
-  <div class="row">
+  <div class="row" *ngIf="auth.logado()">
 
-    <div class="col-md-3">
-      <app-menu></app-menu>
+    <div class="col-md-3 p-0" *ngIf="auth.logado()">
+      <app-menu *ngIf="auth.logado()"></app-menu>
     </div>
 
-    <div class="col-md-9">
-      <router-outlet></router-outlet>
+    <div class="col-md-9 p-0" *ngIf="auth.logado()">
+      <router-outlet *ngIf="auth.logado()"></router-outlet>
     </div>
   </div>
 
-<app-rodape></app-rodape>
+<app-rodape *ngIf="auth.logado()"></app-rodape>
 </div>
 
 
 <!-- menu logoff -->
 <div class="container-fluid p-0" *ngIf="!auth.logado()">
-  <app-menu></app-menu>
-  <router-outlet></router-outlet>
-  <app-rodape></app-rodape>
+  <app-menu *ngIf="!auth.logado()"></app-menu>
+  <router-outlet *ngIf="!auth.logado()"></router-outlet>
+  <app-rodape *ngIf="!auth.logado()"></app-rodape>
 </div>

@@ -20,6 +20,16 @@ export class PostagemComponent implements OnInit {
   listaTemas: Tema[]
   idTema: number
 
+  cep: number
+  cidade: string
+  estado: string
+  endereco: string
+  endereco2: string
+  foto: string
+  denuncia: string
+  checkbox: boolean
+
+
   postagem: Postagem = new Postagem()
   listaPostagens: Postagem[]
 
@@ -75,6 +85,7 @@ export class PostagemComponent implements OnInit {
     this.user.id = this.idUser
     this.postagem.usuario = this.user
 
+    console.log(this.postagem)
 
     this.postagemService.postPostagens(this.postagem).subscribe((resp: Postagem) =>{
       this.postagem = resp
