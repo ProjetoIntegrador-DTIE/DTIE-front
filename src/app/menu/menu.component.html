@@ -1,6 +1,6 @@
 <!-- menu logoff -->
 <nav class="navbar navbar-expand-lg navbar-light bg-secondary" *ngIf="!auth.logado()">
-  <a class="navbar-brand text-light" href="#"><img src="assets/imagens/DTIE-00.jpeg" onerror="this.src = 'assets/imagem/user.png' " width="40" height="40" alt="Imagem do user" class="img-fluid border-light"></a>
+  <a class="navbar-brand text-light" href="#"><img src="assets/imagens/DTIE-00.jpeg" onerror="this.src = 'assets/imagem/user.png' " width="80" height="80" alt="Imagem do user" class="img-fluid border-light"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -23,9 +23,8 @@
 <!-- menu login -->
 <div class="d-flex container-fluid" *ngIf="auth.logado()">
   <nav class="bg-secondary" id="sidebar">
-    <div class="sidebar-header">
-      <img src="assets/imagens/DTIE-00.jpeg" onerror="this.src = 'assets/imagem/user.png' " width="40" height="40" alt="Imagem do user" class="img-fluid border-light">
-      <h3 class="text-center">DTIE</h3>
+    <div class="sidebar-header d-flex justify-content-center mt-3">
+      <img src="assets/imagens/DTIE-00.jpeg" onerror="this.src = 'assets/imagem/user.png' " width="80" height="80" alt="Imagem do user" class="img-fluid border-light">
     </div>
 <hr>
     <ul class="list-unstyled components">

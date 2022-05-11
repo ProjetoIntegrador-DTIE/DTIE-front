@@ -130,7 +130,8 @@
 
                 <div class="form-group">
                   <label for="denuncia">Entre com sua denúncia</label>
-                  <textarea class="form-control" name="caixaTexto" id="denuncia" rows="5" [(ngModel)]="postagem.texto"></textarea>
+                  <textarea class="form-control mensagemValidar" name="caixaTexto" id="denuncia" rows="5" [(ngModel)]="postagem.texto"></textarea>
+                  <div class="textMensagem text-light"></div>
                 </div>
               </form>
 
@@ -188,9 +189,14 @@
                   <div class="card text-center" *ngFor="let item of listaPostagens">
                     <div class="card-body">
                       <h5 class="card-title m-0">{{item.tema.categoria}}</h5>
+                      <p class="card-text"><small class="text-muted">Estado: {{item.ufNome}}/{{item.ufSigla}}</small></p>
                       <p class="card-text mt-3">{{item.texto}}</p>
                       <p class="card-text"><small class="text-muted">{{item.date | date: "dd/MM/yyyy"}} ás {{item.date | date: "HH:mm"}}</small></p>
                       <p class="card-text"><small class="text-muted">Postado por: {{item.usuario.nome}}</small></p>
+                      <div class="d-flex">
+                        <p class="card-text"><small class="text-muted">Urgencia: {{item.urgencia}}</small></p>
+                        <p class="card-text"><small class="text-muted">Verificado: {{item.urgencia}}</small></p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -205,9 +211,9 @@
                   <div class="card text-center" *ngFor="let item of user.postagem">
                     <div class="card-body">
 
-                      <small class="text-muted">Tema: {{item.tema.categoria}</small>
+                      <small class="text-muted">Tema: {{item.tema.categoria}}</small>
                       <p class="card-text mt-3">{{item.texto}}</p>
-                      <p class="card-text"><small class="text-muted">{{item.date | date: "dd/MM/yyyy"}} ás {{item.date | date: "HH:mm"}}</small></p>
+                      <p class="card-text"><small class="text-muted">{{item.date | date: "dd/MM/yyyy"}} às {{item.date | date: "HH:mm"}}</small></p>
                       <p class="card-text"><small class="text-muted">Postado por: {{user.nome}}</small></p>
 
                       <div>
@@ -242,10 +248,15 @@
                   <div class="card text-center" *ngFor="let item of tema.postagem">
                     <div class="card-body">
 
-                      <small class="text-muted">Tema: {{tema.categoria}}</small>
+                      <h5>{{tema.categoria}}</h5>
+                      <p class="card-text"><small class="text-muted">Estado: {{item.ufNome}}/{{item.ufSigla}}</small></p>
                       <p class="card-text mt-3">{{item.texto}}</p>
                       <p class="card-text"><small class="text-muted">{{item.date | date: "dd/MM/yyyy"}} ás {{item.date | date: "HH:mm"}}</small></p>
                       <p class="card-text"><small class="text-muted">Postado por: {{user.nome}}</small></p>
+                      <div class="d-flex">
+                        <p class="card-text"><small class="text-muted">Urgencia: {{item.urgencia}}</small></p>
+                        <p class="card-text"><small class="text-muted">Verificado: {{item.urgencia}}</small></p>
+                      </div>
                     </div>
                   </div>
                 </div>

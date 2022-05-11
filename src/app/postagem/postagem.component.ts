@@ -20,21 +20,15 @@ export class PostagemComponent implements OnInit {
   listaTemas: Tema[]
   idTema: number
 
-  cep: number
-  cidade: string
-  estado: string
-  endereco: string
-  endereco2: string
-  foto: string
-  denuncia: string
-  checkbox: boolean
-
-
   postagem: Postagem = new Postagem()
   listaPostagens: Postagem[]
 
   user: Usuario = new Usuario()
   idUser = environment.id
+
+  mensagem = document.querySelector(".mensagemValidar");
+  textMensagem = document.querySelector(".textMensagem");
+  contador = 0;
 
   constructor(
     private router: Router,
@@ -94,6 +88,19 @@ export class PostagemComponent implements OnInit {
       this.getAllPostagens()
     })
   }
+
+  // validarMensagem(){
+  //   this.contador = this.mensagem
+  //   this.textMensagem.innerHTML = "Numero de caracter " + this.contador + "/100";
+
+  //   if (this.mensagem.value.length > 100) {
+  //     this.mensagem.classList.add("is-invalid");
+  //     this.mensagemOk = false;
+  //    } else {
+  //     this.mensagem.classList.remove("is-invalid");
+  //     this.mensagemOk = true;
+  //    }
+  // }
 
   pesquisar(){
     this.tema.id = this.idTema
