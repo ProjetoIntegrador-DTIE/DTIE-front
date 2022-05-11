@@ -4,6 +4,11 @@
   --clr-cinza-claro: #C7CCDB;
   --clr-branco-gelo: #E1E5EE;
 }
+
+body{
+overflow-x: hidden;
+}
+
 .fs-00{
   font-size: 20pc;
 }

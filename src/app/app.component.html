@@ -1,5 +1,5 @@
 <!-- menu login -->
-<div class="container-fluid" *ngIf="auth.logado()">
+<div class="container-fluid p-0" *ngIf="auth.logado()">
   <div class="row">
 
     <div class="col-md-3">
@@ -16,7 +16,7 @@
 
 
 <!-- menu logoff -->
-<div class="container-fluid" *ngIf="!auth.logado()">
+<div class="container-fluid p-0" *ngIf="!auth.logado()">
   <app-menu></app-menu>
   <router-outlet></router-outlet>
   <app-rodape></app-rodape>

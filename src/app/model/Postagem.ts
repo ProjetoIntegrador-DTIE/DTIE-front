@@ -13,8 +13,8 @@ export class Postagem{
   public ufNome: string;
   public ufSigla: string;
   public urgencia: string;
-  public tema: Tema[];
-  public usuario: Usuario[];
-  public verificacao: Verificacao[];
+  public tema: Tema;
+  public usuario: Usuario;
+  public verificacao: Verificacao;
 
 }
