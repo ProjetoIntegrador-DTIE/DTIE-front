@@ -4,3 +4,12 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.btn {
+  background: rgba( 118, 123, 145, 0.25 );
+  box-shadow: 0 8px 32px 0 rgba(183, 186, 228, 0.37);
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border-radius: 10px;
+  color: #222222;
+}

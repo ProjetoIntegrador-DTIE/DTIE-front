@@ -7,3 +7,9 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.btn-outline-secondary {
+  background-color: var(--clr-preto);
+  color: var(--clr-branco-gelo);
+  outline: auto;
+}

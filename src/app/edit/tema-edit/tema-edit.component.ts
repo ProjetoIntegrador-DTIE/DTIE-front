@@ -36,6 +36,8 @@ export class TemaEditComponent implements OnInit {
   }
 
   atualizar(){
+    this.tema.postagem = []
+    
     console.log(this.tema)
     this.temaService.putTema(this.tema).subscribe((resp: Tema) =>{
       this.tema = resp

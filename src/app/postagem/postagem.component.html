@@ -10,263 +10,281 @@
 
         <h1 class="mr-3">DENUNCIE AGORA </h1>
 
-      <!-- Button trigger modal -->
-      <button type="button" class="btn btn-secondary badge-pill" data-toggle="modal" data-target="#exampleModal">
-        Denuncie
-      </button>
-      <!-- /Button trigger modal -->
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-warning badge-pill text-uppercase font-weight-bold text-white" data-toggle="modal" data-target="#exampleModal">
+          Denuncie
+        </button>
+        <!-- /Button trigger modal -->
 
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Faça sua denuncia</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="form-group">
-                  <label for="temas">Tipo de denuncia ou <a routerLink="/tema" data-dismiss="modal">cadastre um novo</a>: </label>
-                  <select class="form-control badge-pill" id="temas" name="idTema" [(ngModel)]="idTema" (change)="findByIdTema()">
-                    <option *ngFor="let item of listaTemas" value="{{item.id}}">{{item.categoria}}</option>
-                  </select>
-                </div>
-
-                <div class="form-row">
-                  <div class="form-group col-md-4">
-                    <label for="inputCep">CEP</label>
-                    <input type="text" class="form-control badge-pill" name="cep" id="inputCep" placeholder="12345678" [(ngModel)]="postagem.cep">
-                  </div>
-                  <!-- !lista de UF nome -->
-                  <div class="form-group col-md-4">
-                    <label for="inputState">Estado</label>
-                      <select id="inputState" class="form-control badge-pill" name="estado" [(ngModel)]="postagem.ufNome">
-                      <option selected>Escolha...</option>
-                      <option value="Acre">Acre</option>
-                      <option value="Alagoas">Alagoas</option>
-                      <option value="Amapá">Amapá</option>
-                      <option value="Amazonas">Amazonas</option>
-                      <option value="Bahia">Bahia</option>
-                      <option value="Ceará">Ceará</option>
-                      <option value="Distrito Federal">Distrito Federal</option>
-                      <option value="Espírito Santo">Espírito Santo</option>
-                      <option value="Goiás">Goiás</option>
-                      <option value="Maranhão">Maranhão</option>
-                      <option value="Mato Grosso">Mato Grosso</option>
-                      <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
-                      <option value="Minas Gerais">Minas Gerais</option>
-                      <option value="Pará">Pará</option>
-                      <option value="Paraíba">Paraíba</option>
-                      <option value="Paraná">Paraná</option>
-                      <option value="Pernambuco">Pernambuco</option>
-                      <option value="Piauí">Piauí</option>
-                      <option value="Rio de Janeiro">Rio de Janeiro</option>
-                      <option value="Rio Grande do Sul">Rio Grande do Sul</option>
-                      <option value="Rio Grande do Norte">Rio Grande do Norte</option>
-                      <option value="Rondônia">Rondônia</option>
-                      <option value="Roraima">Roraima</option>
-                      <option value="Santa Catarina">Santa Catarina</option>
-                      <option value="São Paulo">São Paulo</option>
-                      <option value="Sergipe">Sergipe</option>
-                      <option value="Tocantins">Tocantins</option>
-                      </select>
-                  </div>
-                  <!-- !/lista de UF nome -->
-
-                  <!-- !lista de UF sigla -->
-                  <div class="form-group col-md-4">
-                    <label for="inputState">UF</label>
-                      <select id="inputState" class="form-control badge-pill" name="estado" [(ngModel)]="postagem.ufSigla">
-                      <option selected>Escolha...</option>
-                      <option value="AC">AC</option>
-                      <option value="AL">AL</option>
-                      <option value="AP">AP</option>
-                      <option value="AM">AM</option>
-                      <option value="BA">BA</option>
-                      <option value="CE">CE</option>
-                      <option value="DF">DF</option>
-                      <option value="ES">ES</option>
-                      <option value="GO">GO</option>
-                      <option value="MA">MA</option>
-                      <option value="MS">MS</option>
-                      <option value="MT">MT</option>
-                      <option value="MG">MG</option>
-                      <option value="PA">PA</option>
-                      <option value="PB">PB</option>
-                      <option value="PR">PR</option>
-                      <option value="PE">PE</option>
-                      <option value="PI">PI</option>
-                      <option value="RJ">RJ</option>
-                      <option value="RN">RN</option>
-                      <option value="RS">RS</option>
-                      <option value="RO">RO</option>
-                      <option value="RR">RR</option>
-                      <option value="SC">SC</option>
-                      <option value="SP">SP</option>
-                      <option value="SE">SE</option>
-                      <option value="TO">TO</option>
-                      </select>
-                  </div>
-                  <!-- !/lista de UF sigla -->
-                </div>
-
-                <div class="form-group">
-                  <label for="inputEndereco">Endereço</label>
-                  <input type="text" class="form-control badge-pill" name="endereco" id="inputEndereco" placeholder="1234 Av. Paulista" [(ngModel)]="postagem.endereco">
-                </div>
-                <div class="form-group">
-                  <label for="inputEndereco2">Complemento</label>
-                  <input type="text" class="form-control badge-pill" name="endereco2" id="inputEndereco2" [(ngModel)]="postagem.complemento">
-                </div>
-
-
-                <div class="form-group">
-                  <label for="fotos">Link para a foto</label>
-                  <input type="text" class="form-control badge-pill" name="foto" id="fotos">
-                </div>
-
-                <div class="form-group">
-                  <label for="denuncia">Entre com sua denúncia</label>
-                  <textarea class="form-control mensagemValidar" name="caixaTexto" id="denuncia" rows="5" [(ngModel)]="postagem.texto"></textarea>
-                  <div class="textMensagem text-light"></div>
-                </div>
-              </form>
-
-              <div class="row">
-                <div class="col d-flex justify-content-end">
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Faça sua denuncia</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form>
                   <div class="form-group">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="checkbox" id="checkbox" [(ngModel)]="postagem.urgencia">
-                      <label class="form-check-label" for="checkbox">
-                        Urgencia
-                      </label>
+                    <label for="temas">Tipo de denuncia ou <a routerLink="/tema" data-dismiss="modal">cadastre um
+                        novo</a>: </label>
+                    <select class="form-control badge-pill" id="temas" name="idTema" [(ngModel)]="idTema"
+                      (change)="findByIdTema()">
+                      <option *ngFor="let item of listaTemas" value="{{item.id}}">{{item.categoria}}</option>
+                    </select>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group col-md-4">
+                      <label for="inputCep">CEP</label>
+                      <input type="text" class="form-control badge-pill" name="cep" id="inputCep" placeholder="12345678"
+                        [(ngModel)]="postagem.cep">
+                    </div>
+                    <!-- !lista de UF nome -->
+                    <div class="form-group col-md-4">
+                      <label for="inputState">Estado</label>
+                      <select id="inputState" class="form-control badge-pill" name="estado"
+                        [(ngModel)]="postagem.ufNome">
+                        <option selected>Escolha...</option>
+                        <option value="Acre">Acre</option>
+                        <option value="Alagoas">Alagoas</option>
+                        <option value="Amapá">Amapá</option>
+                        <option value="Amazonas">Amazonas</option>
+                        <option value="Bahia">Bahia</option>
+                        <option value="Ceará">Ceará</option>
+                        <option value="Distrito Federal">Distrito Federal</option>
+                        <option value="Espírito Santo">Espírito Santo</option>
+                        <option value="Goiás">Goiás</option>
+                        <option value="Maranhão">Maranhão</option>
+                        <option value="Mato Grosso">Mato Grosso</option>
+                        <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
+                        <option value="Minas Gerais">Minas Gerais</option>
+                        <option value="Pará">Pará</option>
+                        <option value="Paraíba">Paraíba</option>
+                        <option value="Paraná">Paraná</option>
+                        <option value="Pernambuco">Pernambuco</option>
+                        <option value="Piauí">Piauí</option>
+                        <option value="Rio de Janeiro">Rio de Janeiro</option>
+                        <option value="Rio Grande do Sul">Rio Grande do Sul</option>
+                        <option value="Rio Grande do Norte">Rio Grande do Norte</option>
+                        <option value="Rondônia">Rondônia</option>
+                        <option value="Roraima">Roraima</option>
+                        <option value="Santa Catarina">Santa Catarina</option>
+                        <option value="São Paulo">São Paulo</option>
+                        <option value="Sergipe">Sergipe</option>
+                        <option value="Tocantins">Tocantins</option>
+                      </select>
+                    </div>
+                    <!-- !/lista de UF nome -->
+
+                    <!-- !lista de UF sigla -->
+                    <div class="form-group col-md-4">
+                      <label for="inputState">UF</label>
+                      <select id="inputState" class="form-control badge-pill" name="estado"
+                        [(ngModel)]="postagem.ufSigla">
+                        <option selected>Escolha...</option>
+                        <option value="AC">AC</option>
+                        <option value="AL">AL</option>
+                        <option value="AP">AP</option>
+                        <option value="AM">AM</option>
+                        <option value="BA">BA</option>
+                        <option value="CE">CE</option>
+                        <option value="DF">DF</option>
+                        <option value="ES">ES</option>
+                        <option value="GO">GO</option>
+                        <option value="MA">MA</option>
+                        <option value="MS">MS</option>
+                        <option value="MT">MT</option>
+                        <option value="MG">MG</option>
+                        <option value="PA">PA</option>
+                        <option value="PB">PB</option>
+                        <option value="PR">PR</option>
+                        <option value="PE">PE</option>
+                        <option value="PI">PI</option>
+                        <option value="RJ">RJ</option>
+                        <option value="RN">RN</option>
+                        <option value="RS">RS</option>
+                        <option value="RO">RO</option>
+                        <option value="RR">RR</option>
+                        <option value="SC">SC</option>
+                        <option value="SP">SP</option>
+                        <option value="SE">SE</option>
+                        <option value="TO">TO</option>
+                      </select>
+                    </div>
+                    <!-- !/lista de UF sigla -->
+                  </div>
+
+                  <div class="form-group">
+                    <label for="inputEndereco">Endereço</label>
+                    <input type="text" class="form-control badge-pill" name="endereco" id="inputEndereco"
+                      placeholder="1234 Av. Paulista" [(ngModel)]="postagem.endereco">
+                  </div>
+                  <div class="form-group">
+                    <label for="inputEndereco2">Complemento</label>
+                    <input type="text" class="form-control badge-pill" name="endereco2" id="inputEndereco2"
+                      [(ngModel)]="postagem.complemento">
+                  </div>
+
+
+                  <div class="form-group">
+                    <label for="fotos">Link da foto</label>
+                    <input type="text" class="form-control badge-pill" name="foto" id="fotos"
+                      [(ngModel)]="postagem.foto">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="denuncia">Entre com sua denúncia</label>
+                    <textarea class="form-control mensagemValidar" name="caixaTexto" id="denuncia" rows="5"
+                      [(ngModel)]="postagem.texto"></textarea>
+                    <div class="textMensagem text-light"></div>
+                  </div>
+                </form>
+
+                <div class="row">
+                  <div class="col d-flex justify-content-end">
+                    <div class="form-group">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="checkbox" id="checkbox"
+                          [(ngModel)]="postagem.urgencia">
+                        <label class="form-check-label" for="checkbox">
+                          Urgencia
+                        </label>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary badge-pill" data-dismiss="modal">Fechar</button>
-              <button type="submit" class="btn btn-outline-secondary badge-pill" (click)="publicar()" data-dismiss="modal">Enviar</button>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary badge-pill" data-dismiss="modal">Fechar</button>
+                <button type="submit" class="btn btn-outline-secondary badge-pill" (click)="publicar()"
+                  data-dismiss="modal">Enviar</button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <!-- /Modal -->
+        <!-- /Modal -->
       </div>
       <!-- /Postagem -->
 
-    <hr>
+      <hr>
 
       <!-- Posts -->
       <div class="row">
-        <div class="col d-flex justify-content-center">
-          <h3>Posts</h3>
-        </div>
+        <div class="container mb-5 mt-3" id="postagens">
+          <nav>
+            <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
+              <a class="nav-link active text-secondary font-weight-bold" id="nav-todasPostagens-tab" data-toggle="tab"
+                href="#nav-todasPostagens" role="tab" aria-controls="nav-todasPostagens" aria-selected="true">Todas as
+                postagens</a>
 
-        <div class="row">
-          <div class="container mb-5 mt-3" id="postagens">
-            <nav>
-              <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
-                <a class="nav-link active text-secondary font-weight-bold" id="nav-todasPostagens-tab" data-toggle="tab" href="#nav-todasPostagens" role="tab" aria-controls="nav-todasPostagens" aria-selected="true">Todas as postagens</a>
+              <a (click)="findByIdUser()" class="nav-link text-secondary font-weight-bold" id="nav-minhasPostagens-tab"
+                data-toggle="tab" href="#nav-minhasPostagens" role="tab" aria-controls="nav-minhasPostagens"
+                aria-selected="false">Minhas Postagens</a>
 
-                <a (click)="findByIdUser()" class="nav-link text-secondary font-weight-bold" id="nav-minhasPostagens-tab" data-toggle="tab" href="#nav-minhasPostagens" role="tab" aria-controls="nav-minhasPostagens" aria-selected="false">Minhas Postagens</a>
+              <a class="nav-link text-secondary font-weight-bold" id="nav-postagenTema-tab" data-toggle="tab"
+                href="#nav-postagenTema" role="tab" aria-controls="nav-postagenTema" aria-selected="false">Postagens por
+                tema</a>
+            </div>
+          </nav>
 
-                <a class="nav-link text-secondary font-weight-bold" id="nav-postagenTema-tab" data-toggle="tab" href="#nav-postagenTema" role="tab" aria-controls="nav-postagenTema" aria-selected="false">Postagens por tema</a>
-              </div>
-            </nav>
+          <!-- Abas das postagens -->
+          <div class="tab-content mt-3" id="nav-tabContent">
+            <!-- !Todas as postagens -->
+            <div class="tab-pane fade show active" id="nav-todasPostagens" role="tabpanel"
+              aria-labelledby="nav-todasPostagens-tab">
 
-            <!-- Abas das postagens -->
-            <div class="tab-content mt-3" id="nav-tabContent">
-              <!-- !Todas as postagens -->
-              <div class="tab-pane fade show active" id="nav-todasPostagens" role="tabpanel" aria-labelledby="nav-todasPostagens-tab">
-
-                <div class="card-columns">
-                  <div class="card text-center" *ngFor="let item of listaPostagens">
-                    <div class="card-body">
-                      <h5 class="card-title m-0">{{item.tema.categoria}}</h5>
-                      <p class="card-text"><small class="text-muted">Estado: {{item.ufNome}}/{{item.ufSigla}}</small></p>
-                      <p class="card-text mt-3">{{item.texto}}</p>
-                      <p class="card-text"><small class="text-muted">{{item.date | date: "dd/MM/yyyy"}} às {{item.date | date: "HH:mm"}}</small></p>
-                      <p class="card-text"><small class="text-muted">Postado por: {{item.usuario.nome}}</small></p>
-                      <div class="d-flex">
-                        <p class="card-text"><small class="text-muted">Urgencia: {{item.urgencia}}</small></p>
-                        <p class="card-text"><small class="text-muted">Verificado: {{item.urgencia}}</small></p>
-                      </div>
+              <div class="card-columns">
+                <div class="card text-center" *ngFor="let item of listaPostagens">
+                  <div class="card-body">
+                    <h5 class="card-title m-0">{{item.tema.categoria}}</h5>
+                    <p class="card-text"><small class="text-muted">Estado: {{item.ufNome}}/{{item.ufSigla}}</small></p>
+                    <p class="card-text mt-3">{{item.texto}}</p>
+                    <p class="card-text"><small class="text-muted">{{item.date | date: "dd/MM/yyyy"}} às {{item.date |
+                        date: "HH:mm"}}</small></p>
+                    <p class="card-text"><small class="text-muted">Postado por: {{item.usuario.nome}}</small></p>
+                    <div class="d-flex">
+                      <p class="card-text"><small class="text-muted">Urgencia: {{item.urgencia}}</small></p>
+                      <p class="card-text"><small class="text-muted">Verificado: {{item.urgencia}}</small></p>
                     </div>
                   </div>
                 </div>
-
               </div>
-              <!-- !/Todas as postagens -->
-
-              <!-- !Minhas Postagens -->
-              <div class="tab-pane fade" id="nav-minhasPostagens" role="tabpanel" aria-labelledby="nav-minhasPostagens-tab">
-
-                <div class="card-columns">
-                  <div class="card text-center" *ngFor="let item of user.postagem">
-                    <div class="card-body">
-
-                      <small class="text-muted">Tema: {{item.tema.categoria}}</small>
-                      <p class="card-text mt-3">{{item.texto}}</p>
-                      <p class="card-text"><small class="text-muted">{{item.date | date: "dd/MM/yyyy"}} às {{item.date | date: "HH:mm"}}</small></p>
-                      <p class="card-text"><small class="text-muted">Postado por: {{user.nome}}</small></p>
-
-                      <div>
-                        <a class="btn btn-secondary badge-pill mr-3" [routerLink]="['/postagemEdit', item.id]">Editar</a>
-                        <a class="btn btn-outline-danger badge-pill" [routerLink]="['/postagemDelete', item.id]">Apagar</a>
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-              <!-- !/Minhas Postagens -->
-
-              <!-- !Postagens por tema -->
-              <div class="tab-pane fade" id="nav-postagenTema" role="tabpanel" aria-labelledby="nav-postagenTema-tab">
-
-                <div class="form-group">
-                  <div class="row d-flex justify-content-center">
-                    <div class="col-md-4">
-                      <select class="form-control badge-pill" id="temas" name="idTema" [(ngModel)]="idTema">
-                        <option *ngFor="let item of listaTemas" value="{{item.id}}">{{item.categoria}}</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="d-flex justify-content-center mt-3">
-                    <button type="button" class="btn btn-outline-secondary badge-pill" (click)="pesquisar()">Pesquisar</button>
-                  </div>
-                </div>
-
-                <div class="card-columns">
-                  <div class="card text-center" *ngFor="let item of tema.postagem">
-                    <div class="card-body">
-
-                      <h5>{{tema.categoria}}</h5>
-                      <p class="card-text"><small class="text-muted">Estado: {{item.ufNome}}/{{item.ufSigla}}</small></p>
-                      <p class="card-text mt-3">{{item.texto}}</p>
-                      <p class="card-text"><small class="text-muted">{{item.date | date: "dd/MM/yyyy"}} às {{item.date | date: "HH:mm"}}</small></p>
-                      <p class="card-text"><small class="text-muted">Postado por: {{user.nome}}</small></p>
-                      <div class="d-flex">
-                        <p class="card-text"><small class="text-muted">Urgencia: {{item.urgencia}}</small></p>
-                        <p class="card-text"><small class="text-muted">Verificado: {{item.urgencia}}</small></p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-              <!-- !/Postagens por tema -->
 
             </div>
-            <!-- /Abas das postagens -->
+            <!-- !/Todas as postagens -->
+
+            <!-- !Minhas Postagens -->
+            <div class="tab-pane fade" id="nav-minhasPostagens" role="tabpanel"
+              aria-labelledby="nav-minhasPostagens-tab">
+
+              <div class="card-columns">
+                <div class="card text-center" *ngFor="let item of user.postagem">
+                  <div class="card-body">
+
+                    <small class="text-muted">Tema: {{item.tema.categoria}}</small>
+                    <p class="card-text mt-3">{{item.texto}}</p>
+                    <p class="card-text"><small class="text-muted">{{item.date | date: "dd/MM/yyyy"}} às {{item.date |
+                        date: "HH:mm"}}</small></p>
+                    <p class="card-text"><small class="text-muted">Postado por: {{user.nome}}</small></p>
+
+                    <div>
+                      <a class="btn btn-secondary badge-pill mr-3" [routerLink]="['/postagemEdit', item.id]">Editar</a>
+                      <a class="btn btn-outline-danger badge-pill"
+                        [routerLink]="['/postagemDelete', item.id]">Apagar</a>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <!-- !/Minhas Postagens -->
+
+            <!-- !Postagens por tema -->
+            <div class="tab-pane fade" id="nav-postagenTema" role="tabpanel" aria-labelledby="nav-postagenTema-tab">
+
+              <div class="form-group">
+                <div class="row d-flex justify-content-center">
+                  <div class="col-md-4">
+                    <select class="form-control badge-pill" id="temas" name="idTema" [(ngModel)]="idTema">
+                      <option *ngFor="let item of listaTemas" value="{{item.id}}">{{item.categoria}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-center mt-3">
+                  <button type="button" class="btn btn-outline-secondary badge-pill"
+                    (click)="pesquisar()">Pesquisar</button>
+                </div>
+              </div>
+
+              <div class="card-columns">
+                <div class="card text-center" *ngFor="let item of tema.postagem">
+                  <div class="card-body">
+
+                    <h5>{{tema.categoria}}</h5>
+                    <p class="card-text"><small class="text-muted">Estado: {{item.ufNome}}/{{item.ufSigla}}</small></p>
+                    <p class="card-text mt-3">{{item.texto}}</p>
+                    <p class="card-text"><small class="text-muted">{{item.date | date: "dd/MM/yyyy"}} às {{item.date |
+                        date: "HH:mm"}}</small></p>
+                    <p class="card-text"><small class="text-muted">Postado por: {{user.nome}}</small></p>
+                    <div class="d-flex">
+                      <p class="card-text"><small class="text-muted">Urgencia: {{item.urgencia}}</small></p>
+                      <p class="card-text"><small class="text-muted">Verificado: {{item.urgencia}}</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <!-- !/Postagens por tema -->
+
           </div>
+          <!-- /Abas das postagens -->
         </div>
       </div>
       <!-- /Posts -->
@@ -284,11 +302,21 @@
       <div class="row">
         <div class="col-md-10 offset-md-1">
           <ul class="list-group">
-            <li class="list-group-item">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro blanditiis quaerat temporibus fugit nesciunt ab perspiciatis! Minima animi sed in laudantium aspernatur vel consequuntur, nostrum sequi voluptates, perferendis amet necessitatibus!</li>
-            <li class="list-group-item">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis ut modi velit autem sequi dignissimos odit, tempore repellat ratione quas at animi quam itaque iure repellendus accusantium doloribus nulla quaerat!</li>
-            <li class="list-group-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim qui, voluptates provident temporibus cumque soluta hic itaque et quaerat explicabo omnis obcaecati eveniet accusamus, ipsa debitis reiciendis mollitia officia vel.</li>
-            <li class="list-group-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, deleniti doloribus odio quasi ullam molestias, labore blanditiis mollitia perspiciatis consectetur quos sed et modi ratione incidunt, repudiandae aliquam natus dolore.</li>
-            <li class="list-group-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. At odio quia consequatur neque doloribus quam suscipit, deleniti numquam veritatis. Molestias mollitia tempore cumque iste consequuntur eveniet omnis voluptatem atque velit.</li>
+            <li class="list-group-item">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro blanditiis
+              quaerat temporibus fugit nesciunt ab perspiciatis! Minima animi sed in laudantium aspernatur vel
+              consequuntur, nostrum sequi voluptates, perferendis amet necessitatibus!</li>
+            <li class="list-group-item">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis ut modi velit
+              autem sequi dignissimos odit, tempore repellat ratione quas at animi quam itaque iure repellendus
+              accusantium doloribus nulla quaerat!</li>
+            <li class="list-group-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim qui, voluptates
+              provident temporibus cumque soluta hic itaque et quaerat explicabo omnis obcaecati eveniet accusamus, ipsa
+              debitis reiciendis mollitia officia vel.</li>
+            <li class="list-group-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, deleniti
+              doloribus odio quasi ullam molestias, labore blanditiis mollitia perspiciatis consectetur quos sed et modi
+              ratione incidunt, repudiandae aliquam natus dolore.</li>
+            <li class="list-group-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. At odio quia
+              consequatur neque doloribus quam suscipit, deleniti numquam veritatis. Molestias mollitia tempore cumque
+              iste consequuntur eveniet omnis voluptatem atque velit.</li>
           </ul>
         </div>
       </div>

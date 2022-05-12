@@ -7,11 +7,10 @@ ul.social-media {
 ul.social-media li {
   display: inline;
   margin: 0;
-  padding: 5px;
+  /* padding: 5px; */
 }
 
 .fa {
-  font-size: 35pt;
   color: white;
   padding: 10px;
 }
