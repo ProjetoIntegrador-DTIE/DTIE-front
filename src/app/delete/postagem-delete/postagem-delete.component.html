@@ -1,0 +1,45 @@
+<div class="container mt-5 mb-5">
+
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="text-center text-secondary">Apagar a denuncia</h1>
+    </div>
+  </div>
+
+  <div class="row d-flex justify-content-center">
+    <div class="col md-6">
+
+      <div class="form-group text-center">
+        <h3>Tem certeza que deseja apagar essa denuncia ?</h3>
+        <div class="row">
+          <div class="col d-flex justify-content-center mt-3">
+            <!-- card -->
+            <div class="card-columns d-flex justify-content-center">
+              <div class="card text-center">
+                <div class="card-body">
+                  <h5 class="card-title m-0">{{postagem.tema.categoria}}</h5>
+                    <p class="card-text"><small class="text-muted">Estado: {{postagem.ufNome}}/{{postagem.ufSigla}}</small></p>
+                    <p class="card-text mt-3">{{postagem.texto}}</p>
+                    <p class="card-text"><small class="text-muted">{{postagem.date | date: "dd/MM/yyyy"}} às {{postagem.date | date: "HH:mm"}}</small></p>
+                    <p class="card-text"><small class="text-muted">Postado por: {{postagem.usuario.nome}}</small></p>
+                    <div class="d-flex">
+                      <p class="card-text"><small class="text-muted">Urgencia: {{postagem.urgencia}}</small></p>
+                      <p class="card-text"><small class="text-muted">Verificado: {{postagem.urgencia}}</small></p>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <!-- /card -->
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-secondary mr-3" routerLink="/postagem">Cancelar</button>
+        <button type="button" class="btn btn-outline-danger" (click)="deletar()">Apagar</button>
+      </div>
+
+    </div>
+  </div>
+
+</div>
