@@ -196,11 +196,17 @@
                 <div class="card text-center" *ngFor="let item of user.postagem">
                   <div class="card-body">
 
-                    <small class="text-muted">Tema: {{item.tema.categoria}}</small>
+                    <h5 class="card-title m-0">Tema: {{item.tema.categoria}}</h5>
+                    <p class="card-text"><small class="text-muted">Estado: {{item.ufNome}}/{{item.ufSigla}}</small></p>
                     <p class="card-text mt-3">{{item.texto}}</p>
+                    <img src="{{item.foto}} " onerror="this.src = 'assets/imagens/SemImagem.png' "  class="card-img-top" alt="Imagem da denuncia">
                     <p class="card-text"><small class="text-muted">{{item.date | date: "dd/MM/yyyy"}} às {{item.date |
                         date: "HH:mm"}}</small></p>
                     <p class="card-text"><small class="text-muted">Postado por: {{user.nome}}</small></p>
+                    <div class="d-flex">
+                      <p class="card-text mr-5"><small class="text-muted">Urgência: {{item.urgencia}}</small></p>
+                      <p class="card-text"><small class="text-muted">Verificado: {{item.urgencia}}</small></p>
+                    </div>
 
                     <div>
                       <a class="btn btn-outline-info badge-pill mr-3" [routerLink]="['/postagemEdit', item.id]">Editar</a>
@@ -241,11 +247,12 @@
                     <h5>{{tema.categoria}}</h5>
                     <p class="card-text"><small class="text-muted">Estado: {{item.ufNome}}/{{item.ufSigla}}</small></p>
                     <p class="card-text mt-3">{{item.texto}}</p>
+                    <img src="{{item.foto}} " onerror="this.src = 'assets/imagens/SemImagem.png' "  class="card-img-top" alt="Imagem da denuncia">
                     <p class="card-text"><small class="text-muted">{{item.date | date: "dd/MM/yyyy"}} às {{item.date |
                         date: "HH:mm"}}</small></p>
-                    <p class="card-text"><small class="text-muted">Postado por: {{user.nome}}</small></p>
+                    <p class="card-text"><small class="text-muted">Postado por: {{item.usuario.nome}}</small></p>
                     <div class="d-flex">
-                      <p class="card-text"><small class="text-muted">Urgência: {{item.urgencia}}</small></p>
+                      <p class="card-text mr-5"><small class="text-muted">Urgência: {{item.urgencia}}</small></p>
                       <p class="card-text"><small class="text-muted">Verificado: {{item.urgencia}}</small></p>
                     </div>
                   </div>
