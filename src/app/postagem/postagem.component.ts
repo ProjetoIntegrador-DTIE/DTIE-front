@@ -90,7 +90,6 @@ export class PostagemComponent implements OnInit {
       this.postagem.complemento = this.cep.complemento
       this.postagem.ufSigla = this.cep.uf
     }
-
   }
 
   publicar(){
