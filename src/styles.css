@@ -23,3 +23,7 @@ overflow-x: hidden;
 .corTexto {
   color:var(--clr-branco-gelo);
 }
+
+.corPreta {
+  color:black
+}
