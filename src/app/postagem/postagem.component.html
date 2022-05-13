@@ -6,7 +6,7 @@
     <div class="col-md-8">
 
       <!-- Postagem -->
-      <div class="row d-flex justify-content-center m-3">
+      <div class="container-fluid row d-flex justify-content-center m-3">
 
         <h1 class="mr-3">DENUNCIE AGORA </h1>
 
@@ -21,7 +21,7 @@
           <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Faça sua denuncia</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Faça sua denúncia</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -29,7 +29,7 @@
               <div class="modal-body">
                 <form>
                   <div class="form-group">
-                    <label for="temas">Tipo de denuncia ou <a routerLink="/tema" data-dismiss="modal">cadastre um
+                    <label for="temas">Tipo de denúncia ou <a routerLink="/tema" data-dismiss="modal">cadastre um
                         novo</a>: </label>
                     <select class="form-control badge-pill" id="temas" name="idTema" [(ngModel)]="idTema"
                       (change)="findByIdTema()">
@@ -46,7 +46,7 @@
                     <!-- !lista de UF nome -->
                     <div class="form-group col-md-4">
                       <label for="inputState">Estado</label>
-                      <select id="inputState" class="form-control badge-pill" name="estado"
+                      <select class="form-control badge-pill" id="inputState" name="estado"
                         [(ngModel)]="postagem.ufNome">
                         <option selected>Escolha...</option>
                         <option value="Acre">Acre</option>
@@ -137,7 +137,7 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="denuncia">Entre com sua denúncia</label>
+                    <label for="denuncia">Descreva sua denúncia</label>
                     <textarea class="form-control mensagemValidar" name="caixaTexto" id="denuncia" rows="5"
                       [(ngModel)]="postagem.texto"></textarea>
                     <div class="textMensagem text-light"></div>
@@ -151,7 +151,7 @@
                         <input class="form-check-input" type="checkbox" name="checkbox" id="checkbox"
                           [(ngModel)]="postagem.urgencia">
                         <label class="form-check-label" for="checkbox">
-                          Urgencia
+                          Urgência
                         </label>
                       </div>
                     </div>
@@ -160,7 +160,7 @@
 
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary badge-pill" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-outline-danger badge-pill" data-dismiss="modal">Fechar</button>
                 <button type="submit" class="btn btn-outline-secondary badge-pill" (click)="publicar()"
                   data-dismiss="modal">Enviar</button>
               </div>
@@ -208,7 +208,7 @@
                         date: "HH:mm"}}</small></p>
                     <p class="card-text"><small class="text-muted">Postado por: {{item.usuario.nome}}</small></p>
                     <div class="d-flex">
-                      <p class="card-text"><small class="text-muted">Urgencia: {{item.urgencia}}</small></p>
+                      <p class="card-text"><small class="text-muted">Urgência: {{item.urgencia}}</small></p>
                       <p class="card-text"><small class="text-muted">Verificado: {{item.urgencia}}</small></p>
                     </div>
                   </div>
@@ -233,7 +233,7 @@
                     <p class="card-text"><small class="text-muted">Postado por: {{user.nome}}</small></p>
 
                     <div>
-                      <a class="btn btn-secondary badge-pill mr-3" [routerLink]="['/postagemEdit', item.id]">Editar</a>
+                      <a class="btn btn-outline-info badge-pill mr-3" [routerLink]="['/postagemEdit', item.id]">Editar</a>
                       <a class="btn btn-outline-danger badge-pill"
                         [routerLink]="['/postagemDelete', item.id]">Apagar</a>
                     </div>
@@ -273,7 +273,7 @@
                         date: "HH:mm"}}</small></p>
                     <p class="card-text"><small class="text-muted">Postado por: {{user.nome}}</small></p>
                     <div class="d-flex">
-                      <p class="card-text"><small class="text-muted">Urgencia: {{item.urgencia}}</small></p>
+                      <p class="card-text"><small class="text-muted">Urgência: {{item.urgencia}}</small></p>
                       <p class="card-text"><small class="text-muted">Verificado: {{item.urgencia}}</small></p>
                     </div>
                   </div>
@@ -296,7 +296,7 @@
     <!-- lado direito -->
     <div class="col-md-4">
       <div class="row d-flex justify-content-center m-3">
-        <h1>Noticias</h1>
+        <h1>Notícias</h1>
       </div>
 
       <div class="row">

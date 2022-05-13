@@ -36,13 +36,10 @@ export class TemaEditComponent implements OnInit {
   }
 
   atualizar(){
-    this.tema.postagem = []
-    
-    console.log(this.tema)
+    this.tema.postagem = [] // ajustar edição de tema - postagem tem que ser vazio
     this.temaService.putTema(this.tema).subscribe((resp: Tema) =>{
       this.tema = resp
-      console.log(this.tema)
-      alert("Tema Atualizado")
+      alert("Tema atualizado")
       this.router.navigate(["/tema"])
     })
   }
