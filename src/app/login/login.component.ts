@@ -20,6 +20,19 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {  }
 
+  validaEmail() {
+    let regex = /.+\@.+\..+/
+    if(this.usuarioLogin.usuario.match(regex)) {
+      let txtEmail = (<HTMLDivElement>document.querySelector('#usuario'))
+      txtEmail.classList.remove("is-invalid");
+      txtEmail.classList.add("is-valid")
+    } else {
+      let txtEmail = (<HTMLDivElement>document.querySelector('#usuario'))
+      txtEmail.classList.remove("is-valid");
+      txtEmail.classList.add("is-invalid");
+    }
+  }
+
   entrar(){
     this.auth.login(this.usuarioLogin).subscribe({
       next: (resp: UsuarioLogin) => {
