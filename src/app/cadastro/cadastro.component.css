@@ -1,7 +1,6 @@
 #img-bg{
   background-image: url('https://i0.wp.com/www.ihu.unisinos.br/images/ihu/2017/10/20_10_trabalho_escravo_foto_reporter_brasil.jpg');
-  min-height: 800px;
-  min-width: 400px;
+  min-height: 100vh;
 
   background-position: center;
   background-repeat: no-repeat;

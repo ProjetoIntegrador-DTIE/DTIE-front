@@ -1,7 +1,6 @@
 :root {
   --clr-preto: #222222;
   --clr-cinza-escuro: #767B91;
-  --clr-cinza-claro: #C7CCDB;
   --clr-branco-gelo: #E1E5EE;
 }
 
@@ -15,4 +14,12 @@ overflow-x: hidden;
 
 .barrasCor{
   background-color: var(--clr-preto);
+}
+
+.corFundo {
+  background-color: var(--clr-branco-gelo);
+}
+
+.corTexto {
+  color:var(--clr-branco-gelo);
 }

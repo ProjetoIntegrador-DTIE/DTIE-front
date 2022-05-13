@@ -8,3 +8,8 @@
   color: #fff;
   transition: all 0.3s;
 }
+
+.btn {
+  background-color:var(--clr-preto);
+  color:var(--clr-branco-gelo)
+}

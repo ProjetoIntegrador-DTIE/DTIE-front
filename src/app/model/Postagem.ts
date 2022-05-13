@@ -10,6 +10,7 @@ export class Postagem{
   public cep: string;
   public endereco: string;
   public complemento: string;
+  public foto: string;
   public ufNome: string;
   public ufSigla: string;
   public urgencia: boolean;

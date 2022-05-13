@@ -6,7 +6,7 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-0">
       <li class="nav-item active">
         <a class="nav-link text-light" href="#">Sobre nós <span class="sr-only">(current)</span></a>
       </li>
@@ -22,23 +22,23 @@
 
 <!-- menu login -->
 <div class="d-flex container-fluid" *ngIf="auth.logado()">
-  <nav class="bg-secondary" id="sidebar">
+  <nav class="barrasCor" id="sidebar">
     <div class="sidebar-header d-flex justify-content-center mt-3">
       <img src="assets/imagens/DTIE-00.jpeg" onerror="this.src = 'assets/imagem/user.png' " width="80" height="80" alt="Imagem do user" class="img-fluid border-light">
     </div>
 <hr>
     <ul class="list-unstyled components">
       <li class="nav-item">
-        <a class="nav-link btn btn-secondary text-branco" (click)="sobre()">Sobre nós</a>
+        <a class="nav-link btn text-branco" (click)="sobre()">Sobre nós</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link btn btn-secondary text-branco" (click)="postagem()">Postagens</a>
+        <a class="nav-link btn text-branco" (click)="postagem()">Postagens</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link btn btn-secondary text-branco" data-toggle="modal" data-target="#exampleModal">Denuncie</a>
+        <a class="nav-link btn text-branco" data-toggle="modal" data-target="#exampleModal">Denuncie</a>
       </li>
       <li class="nav-item" *ngIf="auth.logado()">
-        <a class="nav-link btn btn-secondary text-branco" (click)="sair()">Sair</a>
+        <a class="nav-link btn text-branco" (click)="sair()">Sair</a>
       </li>
     </ul>
   </nav>

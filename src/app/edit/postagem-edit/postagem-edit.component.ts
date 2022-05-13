@@ -31,7 +31,7 @@ export class PostagemEditComponent implements OnInit {
   ngOnInit(){
     window.scroll(0,0)
     if(environment.token == ""){
-      alert("Sua seção expirou, faça o login novamente")
+      alert("Sua sessão expirou, faça o login novamente")
       this.router.navigate(["/login"])
     }
 
@@ -66,7 +66,7 @@ export class PostagemEditComponent implements OnInit {
 
     this.postagemService.putPostagens(this.postagem).subscribe((resp: Postagem) =>{
       this.postagem = resp
-      alert("Postagem Atualizado")
+      alert("Postagem atualizada")
       this.router.navigate(["/postagem"])
     })
   }
