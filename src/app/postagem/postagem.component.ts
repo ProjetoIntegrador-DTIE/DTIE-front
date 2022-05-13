@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { Cep } from '../model/Cep';
@@ -8,7 +8,6 @@ import { Usuario } from '../model/Usuario';
 import { AuthService } from '../service/auth.service';
 import { PostagemService } from '../service/postagem.service';
 import { TemaService } from '../service/tema.service';
-import { VerificacaoService } from '../service/verificacao.service';
 import { ViacepService } from '../service/viacep.service';
 
 @Component({
@@ -28,9 +27,9 @@ export class PostagemComponent implements OnInit {
   user: Usuario = new Usuario()
   idUser = environment.id
 
-  mensagem = document.querySelector(".mensagemValidar");
-  textMensagem = document.querySelector(".textMensagem");
-  contador = 0;
+  mensagem = (<HTMLTextAreaElement>document.querySelector(".mensagemValidar"))
+  textMensagem = <HTMLDivElement>document.querySelector(".textMensagem")
+  contador: number = 0;
 
   cep: Cep = new Cep()
 
@@ -51,6 +50,9 @@ export class PostagemComponent implements OnInit {
     this.authService.refreshToken()
     this.getAllTemas()
     this.getAllPostagens()
+
+    // this.textMensagem.innerHTML = "Numero de caracteres " + this.contador + "/1000";
+
   }
 
   getAllTemas(){
@@ -79,17 +81,35 @@ export class PostagemComponent implements OnInit {
 
   validarCep(){
     console.log(this.cep)
-    this.viaCep.getCep(this.postagem.cep).subscribe((resp: Cep) => {
-      this.cep = resp
-    })
 
     console.log(this.cep)
 
-    if(this.postagem.cep.length == 8){
+    if(this.postagem.cep.length >= 8){
+      this.viaCep.getCep(this.postagem.cep).subscribe((resp: Cep) => {
+        this.cep = resp
+      })
       this.postagem.endereco = this.cep.logradouro
       this.postagem.complemento = this.cep.complemento
+      this.postagem.ufNome = this.cep.localidade //Nome da cidade
       this.postagem.ufSigla = this.cep.uf
     }
+  }
+
+  contagem(){
+    this.contador = this.contador + 1
+  }
+
+  validarMensagem(){
+    // this.contador = this.mensagem.value.length
+    // this.textMensagem.innerHTML = "Numero de caracteres " + this.contador + "/1000";
+
+    // if (this.mensagem.value.length > 100) {
+    //   this.mensagem.classList.add("is-invalid");
+    //   // this.mensagemOk = false;
+    //  } else {
+    //   this.mensagem.classList.remove("is-invalid");
+    //   // this.mensagemOk = true;
+    //  }
   }
 
   publicar(){
@@ -108,19 +128,6 @@ export class PostagemComponent implements OnInit {
       this.getAllPostagens()
     })
   }
-
-  // validarMensagem(){
-  //   this.contador = this.mensagem
-  //   this.textMensagem.innerHTML = "Numero de caracter " + this.contador + "/100";
-
-  //   if (this.mensagem.value.length > 100) {
-  //     this.mensagem.classList.add("is-invalid");
-  //     this.mensagemOk = false;
-  //    } else {
-  //     this.mensagem.classList.remove("is-invalid");
-  //     this.mensagemOk = true;
-  //    }
-  // }
 
   pesquisar(){
     this.tema.id = this.idTema

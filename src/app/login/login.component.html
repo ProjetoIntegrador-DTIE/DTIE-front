@@ -13,6 +13,7 @@
               name="usuario"
               id="usuario"
               placeholder="Seu e-mail"
+              (keyup)="validaEmail()"
               [(ngModel)]="usuarioLogin.usuario"
             />
           </div>

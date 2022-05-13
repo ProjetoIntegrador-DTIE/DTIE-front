@@ -2,7 +2,7 @@
 <div class="container-fluid p-0" *ngIf="auth.logado()">
   <div class="row" *ngIf="auth.logado()">
 
-    <div class="col-md-2 p-0" *ngIf="auth.logado()">
+    <div class="col-md-2 p-0 barrasCor" *ngIf="auth.logado()">
       <app-menu *ngIf="auth.logado()" class="mr-0"></app-menu>
     </div>
 
@@ -11,7 +11,7 @@
     </div>
   </div>
 
-<app-rodape *ngIf="auth.logado()" class="mt-auto"></app-rodape>
+  <app-rodape *ngIf="auth.logado()" class="mt-auto"></app-rodape>
 </div>
 
 
