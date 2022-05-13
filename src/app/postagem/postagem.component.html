@@ -10,38 +10,35 @@
 
         <h1 class="mr-3">DENUNCIE AGORA </h1>
 
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-warning badge-pill text-uppercase font-weight-bold text-white" data-toggle="modal" data-target="#exampleModal">
-          Denuncie
-        </button>
-        <!-- /Button trigger modal -->
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-secondary badge-pill" data-toggle="modal" data-target="#exampleModal">
+        Denuncie
+      </button>
+      <!-- /Button trigger modal -->
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-scrollable">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Faça sua denúncia</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <form>
-                  <div class="form-group">
-                    <label for="temas">Tipo de denúncia ou <a routerLink="/tema" data-dismiss="modal">cadastre um
-                        novo</a>: </label>
-                    <select class="form-control badge-pill" id="temas" name="idTema" [(ngModel)]="idTema"
-                      (change)="findByIdTema()">
-                      <option *ngFor="let item of listaTemas" value="{{item.id}}">{{item.categoria}}</option>
-                    </select>
-                  </div>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Faça sua denuncia</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="temas">Tipo de denuncia ou <a routerLink="/tema" data-dismiss="modal">cadastre um novo</a>: </label>
+                  <select class="form-control badge-pill" id="temas" name="idTema" [(ngModel)]="idTema" (change)="findByIdTema()">
+                    <option *ngFor="let item of listaTemas" value="{{item.id}}">{{item.categoria}}</option>
+                  </select>
+                </div>
 
-                  <div class="form-row">
-                    <div class="form-group col-md-4">
-                      <label for="inputCep">CEP</label>
-                      <input type="text" class="form-control badge-pill" name="cep" id="inputCep" placeholder="12345678"
-                        [(ngModel)]="postagem.cep">
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="inputCep">CEP</label>
+                    <input type="text" class="form-control badge-pill" name="cep" id="inputCep" placeholder="12345678" [(ngModel)]="postagem.cep"  (keyup)="validarCep()">
                     </div>
                     <!-- !lista de UF nome -->
                     <div class="form-group col-md-4">
