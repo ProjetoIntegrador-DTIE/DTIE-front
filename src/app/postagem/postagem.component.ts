@@ -51,7 +51,7 @@ export class PostagemComponent implements OnInit {
     this.getAllTemas()
     this.getAllPostagens()
 
-    // this.textMensagem.innerHTML = "Numero de caracteres " + this.contador + "/1000";
+    // this.textMensagem.innerHTML = "Número de caracteres " + this.contador + "/1000";
 
   }
 
@@ -101,7 +101,7 @@ export class PostagemComponent implements OnInit {
 
   validarMensagem(){
     // this.contador = this.mensagem.value.length
-    // this.textMensagem.innerHTML = "Numero de caracteres " + this.contador + "/1000";
+    // this.textMensagem.innerHTML = "Número de caracteres " + this.contador + "/1000";
 
     // if (this.mensagem.value.length > 100) {
     //   this.mensagem.classList.add("is-invalid");
@@ -123,7 +123,7 @@ export class PostagemComponent implements OnInit {
 
     this.postagemService.postPostagens(this.postagem).subscribe((resp: Postagem) =>{
       this.postagem = resp
-      alert("Postagem realizada com sucesso")
+      alert("Denúncia realizada com sucesso")
       this.postagem = new Postagem()
       this.getAllPostagens()
     })

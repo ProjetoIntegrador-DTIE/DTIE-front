@@ -21,7 +21,7 @@
         <div class="modal-dialog modal-dialog-scrollable">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Faça sua denuncia</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Faça sua denúncia</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -29,7 +29,7 @@
             <div class="modal-body">
               <form>
                 <div class="form-group">
-                  <label for="temas">Tipo de denuncia ou <a routerLink="/tema" data-dismiss="modal">cadastre um novo</a>: </label>
+                  <label for="temas">Tipo de denúncia ou <a routerLink="/tema" data-dismiss="modal">cadastre um novo</a>: </label>
                   <select class="form-control badge-pill" id="temas" name="idTema" [(ngModel)]="idTema" (change)="findByIdTema()">
                     <option *ngFor="let item of listaTemas" value="{{item.id}}">{{item.categoria}}</option>
                   </select>
@@ -90,7 +90,7 @@
                   <div class="form-group">
                     <label for="inputEndereco">Endereço</label>
                     <input type="text" class="form-control badge-pill" name="endereco" id="inputEndereco"
-                      placeholder="1234 Av. Paulista" [(ngModel)]="postagem.endereco">
+                    [(ngModel)]="postagem.endereco">
                   </div>
                   <div class="form-group">
                     <label for="inputEndereco2">Complemento</label>
@@ -109,7 +109,7 @@
                     <label for="denuncia">Descreva sua denúncia</label>
                     <textarea class="form-control mensagemValidar" name="caixaTexto" id="denuncia" rows="5"
                       [(ngModel)]="postagem.texto" (input)="validarMensagem()" (input)="contagem()"></textarea>
-                    <div class="textMensagem text-secondary">Numero de caracteres {{this.contador}}/1000</div>
+                    <div class="textMensagem text-secondary">Número de caracteres {{this.contador}}/1000</div>
                   </div>
                 </form>
 
@@ -149,15 +149,15 @@
             <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
               <a class="nav-link active text-secondary font-weight-bold" id="nav-todasPostagens-tab" data-toggle="tab"
                 href="#nav-todasPostagens" role="tab" aria-controls="nav-todasPostagens" aria-selected="true">Todas as
-                postagens</a>
+                denúncias</a>
 
               <a (click)="findByIdUser()" class="nav-link text-secondary font-weight-bold" id="nav-minhasPostagens-tab"
                 data-toggle="tab" href="#nav-minhasPostagens" role="tab" aria-controls="nav-minhasPostagens"
-                aria-selected="false">Minhas Postagens</a>
+                aria-selected="false">Minhas denúncias</a>
 
               <a class="nav-link text-secondary font-weight-bold" id="nav-postagenTema-tab" data-toggle="tab"
-                href="#nav-postagenTema" role="tab" aria-controls="nav-postagenTema" aria-selected="false">Postagens por
-                tema</a>
+                href="#nav-postagenTema" role="tab" aria-controls="nav-postagenTema" aria-selected="false">Denúncias por
+                categoria</a>
             </div>
           </nav>
 
@@ -196,7 +196,7 @@
                 <div class="card text-center" *ngFor="let item of user.postagem">
                   <div class="card-body">
 
-                    <h5 class="card-title m-0">Tema: {{item.tema.categoria}}</h5>
+                    <h5 class="card-title m-0">{{item.tema.categoria}}</h5>
                     <p class="card-text"><small class="text-muted">Estado: {{item.ufNome}}/{{item.ufSigla}}</small></p>
                     <p class="card-text mt-3">{{item.texto}}</p>
                     <img src="{{item.foto}} " onerror="this.src = 'assets/imagens/SemImagem.png' "  class="card-img-top" alt="Imagem da denuncia">

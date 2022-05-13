@@ -22,7 +22,7 @@ export class TemaDeleteComponent implements OnInit {
   ngOnInit(){
     window.scroll(0,0)
     if(environment.token == ""){
-      alert("Sua seção expirou, faça o login novamente")
+      alert("Sua sessão expirou, faça o login novamente")
       this.router.navigate(["/login"])
     }
     let id = this.route.snapshot.params["id"]
@@ -37,7 +37,7 @@ export class TemaDeleteComponent implements OnInit {
 
   deletar(){
     this.temaService.deleteTema(this.tema.id).subscribe(() =>{
-      alert("Tema Deletado")
+      alert("Categoria apagada")
       this.router.navigate(["/tema"])
     })
   }
