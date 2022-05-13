@@ -1,5 +1,5 @@
 :root {
-  --clr-azul-escuro: #2a324b;
+  --clr-preto: #222222;
   --clr-cinza-escuro: #767B91;
   --clr-cinza-claro: #C7CCDB;
   --clr-branco-gelo: #E1E5EE;
@@ -11,4 +11,8 @@ overflow-x: hidden;
 
 .fs-00{
   font-size: 20pc;
+}
+
+.barrasCor{
+  background-color: var(--clr-preto);
 }

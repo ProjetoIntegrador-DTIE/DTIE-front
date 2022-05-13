@@ -38,7 +38,7 @@
                 <div class="form-row">
                   <div class="form-group col-md-4">
                     <label for="inputCep">CEP</label>
-                    <input type="text" class="form-control badge-pill" name="cep" id="inputCep" placeholder="12345678" [(ngModel)]="postagem.cep">
+                    <input type="text" class="form-control badge-pill" name="cep" id="inputCep" placeholder="12345678" [(ngModel)]="postagem.cep"  (keyup)="validarCep()">
                   </div>
                   <!-- !lista de UF nome -->
                   <div class="form-group col-md-4">
