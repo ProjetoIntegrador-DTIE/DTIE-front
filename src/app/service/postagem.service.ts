@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { finalize, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
 import { Postagem } from '../model/Postagem';
 
@@ -10,7 +11,8 @@ import { Postagem } from '../model/Postagem';
 export class PostagemService {
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private spinner: NgxSpinnerService
   ) { }
 
   token = {
@@ -26,7 +28,8 @@ export class PostagemService {
   }
 
   postPostagens(postagens: Postagem): Observable<Postagem>{
-    return this.http.post<Postagem>("https://dtie.herokuapp.com/postagem", postagens, this.token)
+    this.spinner.show();
+    return this.http.post<Postagem>("https://dtie.herokuapp.com/postagem", postagens, this.token).pipe(finalize(() => this.spinner.hide()))
   }
 
   putPostagens(postagens: Postagem): Observable<Postagem>{
