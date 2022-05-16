@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { NgxMaskModule } from 'ngx-mask'
+import { OrderModule } from 'ngx-order-pipe';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { SobreNosComponent } from './sobre-nos/sobre-nos.component';
 import { PostagemComponent } from './postagem/postagem.component';
@@ -44,6 +45,7 @@ import { PostagemDeleteComponent } from './delete/postagem-delete/postagem-delet
     BrowserAnimationsModule,
     NgxSpinnerModule,
     NgxMaskModule.forRoot({dropSpecialCharacters: true}),
+    OrderModule,
   ],
 
   providers: [

@@ -164,7 +164,7 @@
               aria-labelledby="nav-todasPostagens-tab">
 
               <div class="card-columns">
-                <div class="card text-center" *ngFor="let item of listaPostagens">
+                <div class="card text-center" *ngFor="let item of listaPostagens | orderBy: key: reverse">
                   <div class="card-body">
                     <h5 class="card-title m-0">{{item.tema.categoria}}</h5>
                     <p class="card-text"><small class="text-muted">Estado: {{item.ufNome}}/{{item.ufSigla}}</small></p>
@@ -189,7 +189,7 @@
               aria-labelledby="nav-minhasPostagens-tab">
 
               <div class="card-columns">
-                <div class="card text-center" *ngFor="let item of user.postagem">
+                <div class="card text-center" *ngFor="let item of user.postagem | orderBy: key: reverse">
                   <div class="card-body">
 
                     <h5 class="card-title m-0">{{item.tema.categoria}}</h5>
@@ -225,7 +225,7 @@
                   <!-- Pesquisar -->
                   <div class="col-md-4">
                     <select class="form-control badge-pill" id="temas" name="idTema" [(ngModel)]="idTema">
-                      <option *ngFor="let item of listaTemas" value="{{item.id}}">{{item.categoria}}</option>
+                      <option *ngFor="let item of listaTemas | orderBy: key: reverse" value="{{item.id}}">{{item.categoria}}</option>
                     </select>
                   </div>
                 </div>
@@ -276,8 +276,8 @@
 
       <div class="row">
         <div class="col-md-10 offset-md-1">
-          <ul class="list-group">
-            
+          <ul class="list-group mb-3">
+
             <li class="list-group-item font-italic"><a href="https://noticias.uol.com.br/colunas/leonardo-sakamoto/2022/01/27/brasil-fecha-2021-com-1937-resgatados-da-escravidao-maior-total-desde-2013.htm" class="corPreta" target="_blank">Brasil fecha 2021 com 1937 resgatados da escravidão, maior soma desde 2013.</a><p class="d-flex justify-content-end"> <small class="mt-1">Atualizada em 27/01/2022</small></p></li>
 
             <li class="list-group-item font-italic"><a href="https://www.tst.jus.br/web/trabalho-infantil/-/pandemia-pode-empurrar-mais-8-9-milh%C3%B5es-de-crian%C3%A7as-e-adolescentes-para-o-trabalho-infantil-at%C3%A9-2022-afirma-ju%C3%ADza-da-13%C2%AA-regi%C3%A3o-pb-" class="corPreta" target="_blank">Pandemia pode empurrar mais 8,9 milhões de crianças e adolescentes para o trabalho infantil até 2022, afirma juíza da 13ª Região.</a><p class="d-flex justify-content-end"> <small class="mt-1">Atualizada em 15/11/2021</small></p></li>
