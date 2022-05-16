@@ -37,7 +37,7 @@ export class PostagemComponent implements OnInit {
     private router: Router,
     private postagemService: PostagemService,
     private temaService: TemaService,
-    private authService: AuthService,
+    public authService: AuthService,
     private viaCep: ViacepService
   ) { }
 
