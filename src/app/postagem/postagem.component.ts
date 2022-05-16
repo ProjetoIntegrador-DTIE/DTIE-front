@@ -119,20 +119,24 @@ export class PostagemComponent implements OnInit {
     this.user.id = this.idUser
     this.postagem.usuario = this.user
 
-    console.log(this.postagem)
+    this.postagemService.postPostagens(this.postagem).subscribe({
+      next: (resp: Postagem) => {
+        this.postagem = resp
+        alert("Denúncia realizada com sucesso")
+        this.postagem = new Postagem()
+        this.getAllPostagens()
+      },
+      error: erro => {
+        if(erro.status == 500 || erro.status == 401 || erro.status == 400){
+          alert("Não foi possível cadastrar esta denúncia. Por favor, verifique os campos novamente.");
+        }
+      },
+    });
 
-    this.postagemService.postPostagens(this.postagem).subscribe((resp: Postagem) =>{
-      this.postagem = resp
-      alert("Denúncia realizada com sucesso")
-      this.postagem = new Postagem()
-      this.getAllPostagens()
-    })
   }
 
   pesquisar(){
     this.tema.id = this.idTema
     this.findByIdTema()
   }
-
-
 }

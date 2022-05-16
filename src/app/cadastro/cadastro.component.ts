@@ -45,11 +45,9 @@ export class CadastroComponent implements OnInit {
     }
   }
 
-
-
   cadastrar(){
     if(this.usuario.senha != this.confirmarSenha){
-      alert("A senha está incorreta!");
+      alert("A senha está incorreta");
     }else if(this.emailValido){
       alert("E-mail invalido")
     }else{
