@@ -168,7 +168,7 @@
               aria-labelledby="nav-todasPostagens-tab">
 
               <div class="card-columns">
-                <div class="card text-center" *ngFor="let item of listaPostagens">
+                <div class="card text-center" *ngFor="let item of listaPostagens | orderBy : key : reverse">
                   <div class="card-body">
                     <h5 class="card-title m-0">{{item.tema.categoria}}</h5>
                     <p class="card-text"><small class="text-muted">Estado: {{item.ufNome}}/{{item.ufSigla}}</small></p>
@@ -193,7 +193,7 @@
               aria-labelledby="nav-minhasPostagens-tab">
 
               <div class="card-columns">
-                <div class="card text-center" *ngFor="let item of user.postagem">
+                <div class="card text-center" *ngFor="let item of user.postagem | orderBy : key : reverse">
                   <div class="card-body">
 
                     <h5 class="card-title m-0">{{item.tema.categoria}}</h5>
@@ -229,7 +229,7 @@
                   <!-- Pesquisar -->
                   <div class="col-md-4">
                     <select class="form-control badge-pill" id="temas" name="idTema" [(ngModel)]="idTema">
-                      <option *ngFor="let item of listaTemas" value="{{item.id}}">{{item.categoria}}</option>
+                      <option *ngFor="let item of listaTemas  | orderBy : key : reverse" value="{{item.id}}">{{item.categoria}}</option>
                     </select>
                   </div>
                 </div>

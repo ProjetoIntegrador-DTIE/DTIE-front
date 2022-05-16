@@ -33,6 +33,9 @@ export class PostagemComponent implements OnInit {
 
   cep: Cep = new Cep()
 
+  key = 'data'
+  reverse = true
+
   constructor(
     private router: Router,
     private postagemService: PostagemService,
