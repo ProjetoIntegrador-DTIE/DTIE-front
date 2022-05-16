@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { finalize, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
 import { Usuario } from '../model/Usuario';
 import { UsuarioLogin } from '../model/UsuarioLogin';
@@ -10,7 +11,10 @@ import { UsuarioLogin } from '../model/UsuarioLogin';
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private spinner: NgxSpinnerService
+    ) { }
 
   token = {
     headers: new HttpHeaders().set("Authorization", environment.token)
@@ -23,11 +27,13 @@ export class AuthService {
   }
 
   login(usuarioLogin: UsuarioLogin): Observable<UsuarioLogin>{
-    return this.http.post<UsuarioLogin>("https://dtie.herokuapp.com/usuarios/logar", usuarioLogin);
+    this.spinner.show();
+    return this.http.post<UsuarioLogin>("https://dtie.herokuapp.com/usuarios/logar", usuarioLogin).pipe(finalize(() => this.spinner.hide()));
   }
 
   cadastrar(usuario: Usuario): Observable<Usuario>{
-    return this.http.post<Usuario>("https://dtie.herokuapp.com/usuarios/cadastrar", usuario);
+    this.spinner.show();
+    return this.http.post<Usuario>("https://dtie.herokuapp.com/usuarios/cadastrar", usuario).pipe(finalize(() => this.spinner.hide()));
   }
 
   getByIdUser(id: number): Observable<Usuario>{
