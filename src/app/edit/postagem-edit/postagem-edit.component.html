@@ -85,14 +85,14 @@
         </div>
 
         <div class="form-group">
-          <label for="denuncia">Descreva sua denúncia</label>
+          <label for="denuncia">Descreva sua denúncia <small class="text-danger font-weight-bold">* 10-1000 caracteres</small></label>
           <textarea class="form-control mensagemValidar" name="caixaTexto" id="denuncia" rows="5" [(ngModel)]="postagem.texto"></textarea>
           <div class="textMensagem text-light"></div>
         </div>
-        <small class="text-danger font-weight-bold">* Campos obrigatorios</small>
+        <small class="text-danger font-weight-bold mb-3">* Campos obrigatorios</small>
       </form>
 
-      <div class="d-flex justify-content-center">
+      <div class="d-flex justify-content-center mt-3">
         <button type="button" class="btn btn-outline-danger mr-3" routerLink="/postagem">Cancelar</button>
         <button type="button" class="btn btn-outline-secondary" (click)="atualizar()">Atualizar</button>
       </div>
