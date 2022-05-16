@@ -64,11 +64,18 @@ export class PostagemEditComponent implements OnInit {
     this.tema.id = this.idTema
     this.postagem.tema = this.tema
 
-    this.postagemService.putPostagens(this.postagem).subscribe((resp: Postagem) =>{
-      this.postagem = resp
-      alert("Postagem atualizada")
-      this.router.navigate(["/postagem"])
-    })
+    this.postagemService.postPostagens(this.postagem).subscribe({
+      next: (resp: Postagem) => {
+        this.postagem = resp
+        alert("Postagem atualizada")
+        this.router.navigate(["/postagem"])
+      },
+      error: erro => {
+        if(erro.status == 500 || erro.status == 401 || erro.status == 400){
+          alert("Não foi possível cadastrar esta denúncia. Por favor, verifique os campos novamente.");
+        }
+      },
+    });
   }
 
 }
