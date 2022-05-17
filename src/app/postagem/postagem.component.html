@@ -29,7 +29,7 @@
             <div class="modal-body">
               <form>
                 <div class="form-group">
-                  <label for="temas">Tipo de denúncia ou <a *ngIf="authService.adm()" routerLink="/tema" data-dismiss="modal">cadastre um novo</a>: </label>
+                  <label for="temas">Tipo de denúncia<a *ngIf="authService.adm()" routerLink="/tema" data-dismiss="modal"> ou cadastre um novo</a>: </label>
                   <select class="form-control badge-pill" id="temas" name="idTema" [(ngModel)]="idTema" (change)="findByIdTema()">
                     <option *ngFor="let item of listaTemas" value="{{item.id}}">{{item.categoria}}</option>
                   </select>

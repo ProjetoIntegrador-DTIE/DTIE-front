@@ -44,6 +44,8 @@ export class LoginComponent implements OnInit {
         environment.token = this.usuarioLogin.token;
         environment.tipo = this.usuarioLogin.tipo;
 
+        console.log(this.usuarioLogin)
+
         this.router.navigate(["/postagem"])
       },
       error: erro => {

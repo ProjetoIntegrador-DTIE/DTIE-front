@@ -49,8 +49,11 @@ export class AuthService {
   }
   adm(){
     let ok: boolean = false;
-    if(environment.tipo == "adm"){
+    console.log(ok)
+    console.log(environment)
+    if(environment.tipo === "adm"){
       ok = true;
+      console.log(ok)
     }
     return ok;
   }
