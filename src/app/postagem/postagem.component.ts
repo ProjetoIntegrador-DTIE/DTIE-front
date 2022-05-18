@@ -37,6 +37,8 @@ export class PostagemComponent implements OnInit {
   key = "date"
   reverse = true
 
+  urgenciaPT: string;
+
   constructor(
     private router: Router,
     private postagemService: PostagemService,
@@ -56,6 +58,7 @@ export class PostagemComponent implements OnInit {
     this.getAllTemas()
     this.getAllPostagens()
 
+    this.urgencia()
     // this.textMensagem.innerHTML = "Número de caracteres " + this.contador + "/1000";
 
   }
@@ -130,10 +133,12 @@ export class PostagemComponent implements OnInit {
         this.alerta.showAlertSuccess("Denúncia realizada com sucesso")
         this.postagem = new Postagem()
         this.getAllPostagens()
+        this.contador = 0
       },
       error: erro => {
         if(erro.status == 500 || erro.status == 401 || erro.status == 400){
           this.alerta.showAlertWarning("Não foi possível cadastrar esta denúncia. Por favor, verifique os campos novamente.");
+          this.contador = 0
         }
       },
     });
@@ -143,5 +148,14 @@ export class PostagemComponent implements OnInit {
   pesquisar(){
     this.tema.id = this.idTema
     this.findByIdTema()
+  }
+
+  urgencia(){
+    if (this.postagem.urgencia) {
+      this.urgenciaPT = "Sim"
+    } else {
+      this.urgenciaPT = "Não"
+    }
+
   }
 }
