@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { NgxMaskModule } from 'ngx-mask'
 import { OrderModule } from 'ngx-order-pipe';
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { SobreNosComponent } from './sobre-nos/sobre-nos.component';
 import { PostagemComponent } from './postagem/postagem.component';
@@ -20,6 +21,7 @@ import { PostagemEditComponent } from './edit/postagem-edit/postagem-edit.compon
 import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
 import { TemaDeleteComponent } from './delete/tema-delete/tema-delete.component';
 import { PostagemDeleteComponent } from './delete/postagem-delete/postagem-delete.component';
+import { AlertasComponent } from './alertas/alertas.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { PostagemDeleteComponent } from './delete/postagem-delete/postagem-delet
     PostagemEditComponent,
     TemaEditComponent,
     TemaDeleteComponent,
-    PostagemDeleteComponent
+    PostagemDeleteComponent,
+    AlertasComponent,
   ],
 
   imports: [
@@ -46,6 +49,7 @@ import { PostagemDeleteComponent } from './delete/postagem-delete/postagem-delet
     NgxSpinnerModule,
     NgxMaskModule.forRoot({dropSpecialCharacters: true}),
     OrderModule,
+    ModalModule.forRoot(),
   ],
 
   providers: [

@@ -26,6 +26,10 @@ export class MenuComponent implements OnInit {
     this.router.navigate(["/postagem"])
   }
 
+  subirTela(){
+    window.scroll(0,0)
+  }
+
   sair(){
     this.router.navigate([""])
     environment.token = "";

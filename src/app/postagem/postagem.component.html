@@ -29,7 +29,7 @@
             <div class="modal-body">
               <form>
                 <div class="form-group">
-                  <label for="temas">Tipo de denúncia ou <a routerLink="/tema" data-dismiss="modal">cadastre um novo</a>: <small class="text-danger font-weight-bold">*</small> </label>
+                  <label for="temas">Tipo de denúncia<a *ngIf="authService.adm()" routerLink="/tema" data-dismiss="modal"> ou cadastre um novo</a>: </label>
                   <select class="form-control badge-pill" id="temas" name="idTema" [(ngModel)]="idTema" (change)="findByIdTema()">
                     <option *ngFor="let item of listaTemas" value="{{item.id}}">{{item.categoria}}</option>
                   </select>
@@ -163,9 +163,9 @@
             <div class="tab-pane fade show active" id="nav-todasPostagens" role="tabpanel"
               aria-labelledby="nav-todasPostagens-tab">
 
-              <div class="card-columns">
+              <div class="row row-cols-1 row-cols-md-3">
                 <div class="card text-center" *ngFor="let item of listaPostagens | orderBy: key: reverse">
-                  <div class="card-body">
+                  <div class="card-body border">
                     <h5 class="card-title m-0">{{item.tema.categoria}}</h5>
                     <p class="card-text"><small class="text-muted">Estado: {{item.ufNome}}/{{item.ufSigla}}</small></p>
                     <p class="card-text mt-3">{{item.texto}}</p>
@@ -174,7 +174,7 @@
                         date: "HH:mm"}}</small></p>
                     <p class="card-text"><small class="text-muted">Postado por: {{item.usuario.nome}}</small></p>
                     <div class="d-flex">
-                      <p class="card-text mr-5"><small class="text-muted">Urgência: {{item.urgencia}}</small></p>
+                      <p class="card-text ml-2 mr-5"><small class="text-muted">Urgência: {{item.urgencia}}</small></p>
                       <p class="card-text"><small class="text-muted">Verificado: {{item.urgencia}}</small></p>
                     </div>
                   </div>
@@ -188,7 +188,7 @@
             <div class="tab-pane fade" id="nav-minhasPostagens" role="tabpanel"
               aria-labelledby="nav-minhasPostagens-tab">
 
-              <div class="card-columns">
+              <div class="row row-cols-1 row-cols-md-3">
                 <div class="card text-center" *ngFor="let item of user.postagem | orderBy: key: reverse">
                   <div class="card-body">
 
@@ -200,7 +200,7 @@
                         date: "HH:mm"}}</small></p>
                     <p class="card-text"><small class="text-muted">Postado por: {{user.nome}}</small></p>
                     <div class="d-flex">
-                      <p class="card-text mr-5"><small class="text-muted">Urgência: {{item.urgencia}}</small></p>
+                      <p class="card-text ml-2 mr-5"><small class="text-muted">Urgência: {{item.urgencia}}</small></p>
                       <p class="card-text"><small class="text-muted">Verificado: {{item.urgencia}}</small></p>
                     </div>
 
@@ -236,7 +236,7 @@
               </div>
               <!-- /Pesquisar -->
 
-              <div class="card-columns">
+              <div class="row row-cols-1 row-cols-md-3">
                 <div class="card text-center" *ngFor="let item of tema.postagem">
                   <div class="card-body">
 
@@ -248,7 +248,7 @@
                         date: "HH:mm"}}</small></p>
                     <p class="card-text"><small class="text-muted">Postado por: {{item.usuario.nome}}</small></p>
                     <div class="d-flex">
-                      <p class="card-text mr-5"><small class="text-muted">Urgência: {{item.urgencia}}</small></p>
+                      <p class="card-text ml-2 mr-5"><small class="text-muted">Urgência: {{item.urgencia}}</small></p>
                       <p class="card-text"><small class="text-muted">Verificado: {{item.urgencia}}</small></p>
                     </div>
                   </div>
@@ -293,7 +293,7 @@
               Adolescentes de 16 anos estavam na caçamba de um caminhão que transportava material reciclável.</a><p class="d-flex justify-content-end"> <small class="mt-1">Atualizada em 17/01/2022 </small></p></li>
 
             <li class="list-group-item font-italic"><a href="https://g1.globo.com/ce/ceara/noticia/2021/08/18/cearense-resgatado-de-trabalho-escravo-relata-precariedade-muito-rato-muito-lixo.ghtml" class="corPreta" target="_blank"> Cearense resgatado de trabalho escravo relata precariedade: 'Muito rato, muito lixo'
-              Operação resgatou 17 pessoa de situação análoga à escravidão. Trabalhador justificou o motivo de seguir no local: 'para não roubar a gente submete um momento ruim com esse'.</a><p class="d-flex justify-content-end"> <small class="mt-1">Atualizada em 18/08/2021 </small></p></li>
+              Operação resgatou 17 pessoas de situação análoga à escravidão. Trabalhador justificou o motivo de seguir no local: 'para não roubar a gente submete um momento ruim com esse'.</a><p class="d-flex justify-content-end"> <small class="mt-1">Atualizada em 18/08/2021 </small></p></li>
 
             <li class="list-group-item font-italic"><a href="https://g1.globo.com/rs/rio-grande-do-sul/noticia/2021/09/23/casos-de-criancas-em-situacao-de-trabalho-infantil-quase-triplicam-na-pandemia-em-porto-alegre.ghtml" class="corPreta" target="_blank">Casos de crianças em situação de trabalho infantil quase triplicam na pandemia em Porto Alegre. Um estudo da Fundação de Assistência Social e Cidadania (Fasc) constatou que o número de crianças e adolescentes em situação de trabalho infantil quase triplicou em 2020 na comparação com 2019 em Porto Alegre, no Rio Grande do Sul. Os novos casos saltaram de 120 para 334 no período.</a><p class="d-flex justify-content-end"> <small class="mt-1">Atualizada em 23/09/2021 </small></p></li>
 

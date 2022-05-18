@@ -5,6 +5,7 @@ import { Cep } from '../model/Cep';
 import { Postagem } from '../model/Postagem';
 import { Tema } from '../model/Tema';
 import { Usuario } from '../model/Usuario';
+import { AlertasService } from '../service/alertas.service';
 import { AuthService } from '../service/auth.service';
 import { PostagemService } from '../service/postagem.service';
 import { TemaService } from '../service/tema.service';
@@ -40,14 +41,15 @@ export class PostagemComponent implements OnInit {
     private router: Router,
     private postagemService: PostagemService,
     private temaService: TemaService,
-    private authService: AuthService,
-    private viaCep: ViacepService
+    public authService: AuthService,
+    private viaCep: ViacepService,
+    private alerta: AlertasService
   ) { }
 
   ngOnInit(){
     window.scroll(0,0)
     if(environment.token == ""){
-      alert("Sua sessão expirou, faça o login novamente")
+      this.alerta.showAlertDanger("Sua sessão expirou, faça o login novamente")
       this.router.navigate(["/login"])
     }
     this.authService.refreshToken()
@@ -125,13 +127,13 @@ export class PostagemComponent implements OnInit {
     this.postagemService.postPostagens(this.postagem).subscribe({
       next: (resp: Postagem) => {
         this.postagem = resp
-        alert("Denúncia realizada com sucesso")
+        this.alerta.showAlertSuccess("Denúncia realizada com sucesso")
         this.postagem = new Postagem()
         this.getAllPostagens()
       },
       error: erro => {
         if(erro.status == 500 || erro.status == 401 || erro.status == 400){
-          alert("Não foi possível cadastrar esta denúncia. Por favor, verifique os campos novamente.");
+          this.alerta.showAlertWarning("Não foi possível cadastrar esta denúncia. Por favor, verifique os campos novamente.");
         }
       },
     });
