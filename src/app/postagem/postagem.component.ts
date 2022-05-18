@@ -28,8 +28,6 @@ export class PostagemComponent implements OnInit {
   user: Usuario = new Usuario()
   idUser = environment.id
 
-  mensagem = (<HTMLTextAreaElement>document.querySelector(".mensagemValidar"))
-  textMensagem = <HTMLDivElement>document.querySelector(".textMensagem")
   contador: number = 0;
 
   cep: Cep = new Cep()
@@ -37,7 +35,8 @@ export class PostagemComponent implements OnInit {
   key = "date"
   reverse = true
 
-  urgenciaPT: string;
+  urgente: boolean
+  urgenciaPT: string = "Não";
 
   constructor(
     private router: Router,
@@ -57,9 +56,6 @@ export class PostagemComponent implements OnInit {
     this.authService.refreshToken()
     this.getAllTemas()
     this.getAllPostagens()
-
-    this.urgencia()
-    // this.textMensagem.innerHTML = "Número de caracteres " + this.contador + "/1000";
 
   }
 
@@ -88,10 +84,6 @@ export class PostagemComponent implements OnInit {
   }
 
   validarCep(){
-    console.log(this.cep)
-
-    console.log(this.cep)
-
     if(this.postagem.cep.length >= 8){
       this.viaCep.getCep(this.postagem.cep).subscribe((resp: Cep) => {
         this.cep = resp
@@ -104,20 +96,7 @@ export class PostagemComponent implements OnInit {
   }
 
   contagem(){
-    this.contador = this.contador + 1
-  }
-
-  validarMensagem(){
-    // this.contador = this.mensagem.value.length
-    // this.textMensagem.innerHTML = "Número de caracteres " + this.contador + "/1000";
-
-    // if (this.mensagem.value.length > 100) {
-    //   this.mensagem.classList.add("is-invalid");
-    //   // this.mensagemOk = false;
-    //  } else {
-    //   this.mensagem.classList.remove("is-invalid");
-    //   // this.mensagemOk = true;
-    //  }
+    this.contador = this.postagem.texto.length
   }
 
   publicar(){
@@ -127,18 +106,18 @@ export class PostagemComponent implements OnInit {
     this.user.id = this.idUser
     this.postagem.usuario = this.user
 
+    this.postagem.urgencia = this.urgenciaPT
+
     this.postagemService.postPostagens(this.postagem).subscribe({
       next: (resp: Postagem) => {
         this.postagem = resp
         this.alerta.showAlertSuccess("Denúncia realizada com sucesso")
         this.postagem = new Postagem()
         this.getAllPostagens()
-        this.contador = 0
       },
       error: erro => {
         if(erro.status == 500 || erro.status == 401 || erro.status == 400){
           this.alerta.showAlertWarning("Não foi possível cadastrar esta denúncia. Por favor, verifique os campos novamente.");
-          this.contador = 0
         }
       },
     });
@@ -151,11 +130,12 @@ export class PostagemComponent implements OnInit {
   }
 
   urgencia(){
-    if (this.postagem.urgencia) {
-      this.urgenciaPT = "Sim"
-    } else {
+    if (this.urgente) {
       this.urgenciaPT = "Não"
+    } else {
+      this.urgenciaPT = "Sim"
     }
 
   }
+
 }

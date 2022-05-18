@@ -13,7 +13,7 @@ export class Postagem{
   public foto: string;
   public ufNome: string;
   public ufSigla: string;
-  public urgencia: boolean;
+  public urgencia: string;
   public tema: Tema;
   public usuario: Usuario;
   public verificacao: Verificacao;
