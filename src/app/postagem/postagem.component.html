@@ -163,8 +163,8 @@
             <div class="tab-pane fade show active" id="nav-todasPostagens" role="tabpanel"
               aria-labelledby="nav-todasPostagens-tab">
 
-              <div class="card-columns">
-                <div class="card text-center" *ngFor="let item of listaPostagens | orderBy: key: reverse">
+              <div class="row d-flex flex-wrap">
+                <div class="card text-center col-md-4" *ngFor="let item of listaPostagens | orderBy: key: reverse">
                   <div class="card-body">
                     <h5 class="card-title m-0">{{item.tema.categoria}}</h5>
                     <p class="card-text"><small class="text-muted">Estado: {{item.ufNome}}/{{item.ufSigla}}</small></p>
